@@ -4,11 +4,10 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls;
+  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart;
 
 type
   TForm1 = class(TForm)
-    Memo1: TMemo;
     MainMenu1: TMainMenu;
     OpenDialog1: TOpenDialog;
     SaveDialog1: TSaveDialog;
@@ -29,6 +28,10 @@ type
     N3: TMenuItem;
     N4: TMenuItem;
     N7: TMenuItem;
+    N3DPlot1: TMenuItem;
+    N3DPlot2: TButton;
+    Help1: TMenuItem;
+    Memo1: TMemo;
     procedure N8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure N7Click(Sender: TObject);
@@ -46,6 +49,9 @@ type
 
     procedure StringGrid2MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure N3DPlot1Click(Sender: TObject);
+    procedure Help1Click(Sender: TObject);
+
 
 
 
@@ -77,6 +83,8 @@ var
 
 
 implementation
+
+uses Unit3;
 Const
 Ix=50;  Iy=50;  //величины отступов от краев поля вывода
 //nt=100; //число интервалов на оси x
@@ -85,6 +93,8 @@ ndy=50; //число разбиений по осям (x, y), сетка графика
 nc=7; mc=2; // константы для вывода оцифровки осей
 
 {$R *.dfm}
+(******************************************************************************)
+
 procedure TabClear(n,r,k:integer);
 var iStroki,iStolbca:integer;
 begin
@@ -102,6 +112,7 @@ for iStroki:=r to Form1.StringGrid2.RowCount do
 end;
 end;
 
+(******************************************************************************)
 
 procedure TForm1.StringGrid2DrawCell(Sender: TObject; ACol, ARow: Integer;
   Rect: TRect; State: TGridDrawState);
@@ -125,6 +136,7 @@ Canvas.Brush.Color:=clYellow;
   end;
 end;
 
+(******************************************************************************)
 
 procedure TForm1.StringGrid2MouseUP(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
@@ -146,20 +158,26 @@ begin
   end;
   end; 
 end;
+(******************************************************************************)
+
 
 procedure TForm1.Button1Click(Sender: TObject);
-var i,j,k:integer;
+var i,j,k:integer; iTmp:integer;
 begin
+iTmp:=17;
 Button3.Enabled:=true;
+stringGrid2.ColCount := iTmp;
+stringGrid2.RowCount := iTmp;
    //Загружаем в листинг список значений из edit1
-for i:= 1 to 15 do begin
+for i:= 1 to iTmp do begin
     k:=1;
-      for j:=1 to 17 do begin
+      for j:=1 to iTmp do begin
       stringGrid2.Cells[k,i]:=edit1.Text;
         inc(k)
       end;
     end;
 end;
+(******************************************************************************)
 
 procedure TForm1.Button2Click(Sender: TObject);
 var
@@ -168,6 +186,8 @@ var
   st:string;
 begin
 Button3.Enabled:=true;
+N3DPlot1.Enabled:=true;
+N3DPlot2.Enabled:=true;
 N4.Enabled:=true;
 //Открытие окна диалога ФАЙЛ.ОТКРЫТЬ для выбора папки
 //и файла, текст из которого следует
@@ -179,6 +199,7 @@ N4.Enabled:=true;
 
   // Выбор текстовых файлов как стартовый тип фильтра
  OpenDialog2.FilterIndex := 1;
+ openDialog2.InitialDir := GetCurrentDir+'\VE';
 //поместить в Memo1 - рабочую область редактора.
 if Form1.OpenDialog2.Execute then begin //если выбран файл
   S:=OpenDialog2.FileName;//то S присвоить спецификацию файла,
@@ -195,19 +216,18 @@ with StringGrid2 do
     Readln(f1, iTmp);
      RowCount := iTmp;
      // loop through cells & fill in values
-    for i := 1 to ColCount - 1 do
-       for j := 1 to RowCount - 1 do
+    for i := 1 to ColCount-1 do
+       for j := 1 to RowCount-1 do
        begin
          Readln(f1, st);
          Cells[i, j] := st;
        end;
    end;
-
-
 CloseFile(F1);
     end;
-
+ Form3.Button1Click(Sender);
 end;
+(******************************************************************************)
 
 procedure TForm1.Button3Click(Sender: TObject);
 var
@@ -251,12 +271,13 @@ CloseFile(F1);
 
 end;
 end;
+(******************************************************************************)
 
 procedure TForm1.FormCreate(Sender: TObject);
 var i,j,k:integer;
 begin
 // Разрешаем сохранять файлы типа .txt и .doc
-  OpenDialog1.Filter := 'Secu3 Logfile|*.csv|';
+OpenDialog1.Filter := 'Secu3 Logfile|*.csv|';
 
   // Установка расширения по умолчанию
  OpenDialog1.DefaultExt := '*.csv';
@@ -308,20 +329,40 @@ j:=1;
     13:j:=4530;
     14:j:=5370;
     15:j:=6360;
+    16:j:=7500;
     end;
       stringGrid2.Cells[k,i]:=inttostr(j);
     end;
 
 //Загружаем в листинг список начальных значений
-for i:= 1 to 15 do begin
+for i:= 1 to 17 do begin
     k:=1;
       for j:=1 to 17 do begin
       stringGrid2.Cells[k,i]:=edit1.Text;
-      form1.StringGrid2.Rows[k].Objects[i] := TObject(1);
-        inc(k)
+      form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
+      inc(k)
       end;
     end;
 end;
+(******************************************************************************)
+
+procedure TForm1.Help1Click(Sender: TObject);
+begin
+Showmessage('Программа предназначена для составления таблиц VE по логам.'+#13#10+#13#10+#13#10+
+'1)Вам необходимо установить все коэфициенты наполнения на некое значение при котором Ваш автомобиль будет ехать'+#13#10+#13#10+
+'2)Затем запустить двигатель, дождаться пока включится Лямбда коррекция и записать лог файл(Не стоит ездить более 30 минут)'+#13#10+#13#10+
+'3)Останавливаем запись лога'+#13#10+#13#10+
+'4)Запускаем VETune и в окне начальное значение записываем то наполнение на которое вы установили все графики в менеджере'+#13#10+#13#10+
+'5)Нажимаем кнопку загрузить. Видим что все поля стали равны нашему наполнению'+#13#10+#13#10+
+'6)Нажимаем Файл-Открыть и выбираем наш лог'+#13#10+#13#10+
+'7)Как только лог файл подгрузился нажимаем Построить VE'+#13#10+#13#10+
+'8)Теперь у нас есть таблица наполнений построенная на основе лог файла. Её следует сохранить и в дальнейшем загрузить в качестве начальной перед открытием лога'
++#13#10+#13#10+
+'После чего следует занести все значения обратно в блок Secu-3T и затем перейти к пункту (2)'
++#13#10+#13#10+#13#10+
+'Так же возможно просмотреть график наполнения как в менеджере и непосредственно на графике поправить некоторые точки.');
+end;
+(******************************************************************************)
 
 procedure TForm1.N3Click(Sender: TObject);
 begin
@@ -350,6 +391,13 @@ else begin
 S:='';
 memo1.Lines.Clear; end;
 end;
+ (******************************************************************************)
+
+procedure TForm1.N3DPlot1Click(Sender: TObject);
+begin
+form3.Visible:=true;
+end;
+(******************************************************************************)
 
 procedure TForm1.N4Click(Sender: TObject);
 var s:string;
@@ -395,6 +443,7 @@ rc:=Form1.StringGrid1.RowCount;
 Parse(Sender);
 n10.Enabled:=true;
 end;
+(******************************************************************************)
 
 
 procedure TForm1.N5Click(Sender: TObject);
@@ -425,6 +474,7 @@ n10.Enabled:=true;
 N7.Enabled:=true;
  end;
 end;
+(******************************************************************************)
 
 procedure TForm1.N6Click(Sender: TObject);
 begin
@@ -451,6 +501,7 @@ if Form1.SaveDialog1.Execute then begin
   Form1.Caption:='Form1' + '  ' +  S;
   end;
 end;
+(******************************************************************************)
 
 procedure TForm1.N8Click(Sender: TObject);
 begin
@@ -474,6 +525,7 @@ end
 else close;
 
 end;
+(******************************************************************************)
 
 function zero(s:string):string;
 var i:integer; p,p1:char;
@@ -489,8 +541,8 @@ end;
 if i=5 then i:=i-1;
 Delete(s, 1, i);
 result :=s
-
 end;
+(******************************************************************************)
 
 procedure TForm1.Parse(Sender: TObject);
 var i,j,k:integer;
@@ -511,20 +563,21 @@ with TStringList.Create do
   Free;
   end;
 end;
+(******************************************************************************)
 
 
 
 procedure smlst(arh:Pointer;n:integer;k:integer);
-var i:integer; n1:array [0..13] of integer;
- s1:array [0..13] of real;
-  sr1:array [0..13] of real;
+var i:integer; n1:array [0..15] of integer;
+ s1:array [0..15] of real;
+  sr1:array [0..15] of real;
   arr: array of array of real;
   znac:string;
   zn:real;
 begin
 Pointer(arr) := arh;
 
-for i:=0 to 13 do  begin
+for i:=0 to 15 do  begin
   n1[i]:=0;
   s1[i]:=0;
   sr1[i]:=0;
@@ -588,15 +641,21 @@ for i:=0 to n do
   s1[13]:=s1[13]+arr[1,i];
   inc(n1[13]);
  end;
-
-
+ if (arr[0,i]>=6360) and (arr[0,i]<7500) then begin
+  s1[14]:=s1[14]+arr[1,i];
+  inc(n1[14]);
+ end;
+ if (arr[0,i]>=7500)then begin
+  s1[15]:=s1[15]+arr[1,i];
+  inc(n1[15]);
+ end;
  end;
  //////Проверка
 //   for i:= 0 to 11 do
 // form1.Memo2.Lines.Add(inttostr(n1[i]));
 ///////////////
 //Нахождение среднего арифметического и перевод в сотые
-for i := 0 to 13 do
+for i := 0 to 15 do
  begin
    if n1[i]> 0 then
    sr1[i]:=(s1[i]/n1[i])/100
@@ -626,7 +685,7 @@ end;
 
 znac:='';
 arr:=nil;
-for i:=0 to 13 do  begin
+for i:=0 to 15 do  begin
   n1[i]:=0;
   s1[i]:=0;
   sr1[i]:=0;
@@ -634,6 +693,7 @@ end;
 
 end;
 
+(******************************************************************************)
 
 procedure dk(s:integer);
 var i,j,k,n:integer; f:string; b,b1:real;
@@ -679,6 +739,7 @@ SetLength(rash,0,0);
 Finalize(rash);
 //FillChar(rash, SizeOf(rash), #0);
 end;
+(******************************************************************************)
 
 procedure TForm1.N10Click(Sender: TObject);
 var i:integer;
@@ -693,7 +754,10 @@ begin
 
      form1.Caption:=form1.Caption+ ' - Изменено';
      Button3.Enabled:=true;
+     N3DPlot1.Enabled:=true;
+     N3DPlot2.Enabled:=true;
 end;
+(******************************************************************************)
 
 
 end.

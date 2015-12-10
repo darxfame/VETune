@@ -36,6 +36,7 @@
 			<DCC_K>false</DCC_K>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_Hints>false</DCC_Hints>
 			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
 			<DCC_Optimize>false</DCC_Optimize>
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
@@ -52,6 +53,9 @@
 			</DelphiCompile>
 			<DCCReference Include="Unit1.pas">
 				<Form>Form1</Form>
+			</DCCReference>
+			<DCCReference Include="Unit3.pas">
+				<Form>Form3</Form>
 			</DCCReference>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
@@ -76,9 +80,9 @@
 						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
 						<VersionInfo Name="AutoIncBuild">True</VersionInfo>
 						<VersionInfo Name="MajorVer">1</VersionInfo>
-						<VersionInfo Name="MinorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">2</VersionInfo>
 						<VersionInfo Name="Release">2</VersionInfo>
-						<VersionInfo Name="Build">10</VersionInfo>
+						<VersionInfo Name="Build">25</VersionInfo>
 						<VersionInfo Name="Debug">True</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -90,13 +94,13 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Secu3</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">VE LogTuner</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.1.2.10</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.2.2.25</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright">by Кочегизов Артем</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>
 						<VersionInfoKeys Name="OriginalFilename"/>
 						<VersionInfoKeys Name="ProductName">VE LogTuner</VersionInfoKeys>
-						<VersionInfoKeys Name="ProductVersion">1.1.1.0</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">1.2</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
 					<Source>
