@@ -83,7 +83,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">2</VersionInfo>
 						<VersionInfo Name="Release">2</VersionInfo>
-						<VersionInfo Name="Build">33</VersionInfo>
+						<VersionInfo Name="Build">35</VersionInfo>
 						<VersionInfo Name="Debug">True</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -95,7 +95,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Secu3</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">VE LogTuner</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.2.2.33</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.2.2.35</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright">by Кочегизов Артем</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>

@@ -14,7 +14,6 @@ type
     N1: TMenuItem;
     N5: TMenuItem;
     N8: TMenuItem;
-    StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
     Edit1: TEdit;
     Label1: TLabel;
@@ -31,14 +30,7 @@ type
     N3DPlot1: TMenuItem;
     N3DPlot2: TButton;
     Help1: TMenuItem;
-    Memo1: TMemo;
-    procedure N8Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure N7Click(Sender: TObject);
-    procedure N4Click(Sender: TObject);
-    procedure N6Click(Sender: TObject);
-    procedure N3Click(Sender: TObject);
-    procedure Parse(Sender: TObject);
     procedure N10Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -52,8 +44,7 @@ type
     procedure N3DPlot1Click(Sender: TObject);
     procedure Help1Click(Sender: TObject);
     procedure Edit(Sender: TObject);
-
-
+    procedure N8Click(Sender: TObject);
 
 
   private
@@ -82,6 +73,7 @@ var
   gEditRow : Integer = -1;
 
 
+
 implementation
 
 uses Unit3;
@@ -97,13 +89,16 @@ nc=7; mc=2; // константы для вывода оцифровки осей
   VE_SZ=646;
   VEE_SZ=902;
 Var
-  eeprom:string;
+  eeprom:string;       //Буфер для записи в *.bin
   buf: array [0..BUF_SZ-1] of byte; // буфер чтения
-  hexname:string;
+  hexname:string;   //Имя прошивки
+  loglen:integer;
+  data: array of array of string;
 
 {$R *.dfm}
+
 (******************************************************************************)
-function AsToAc(arrChars: array of byte) : string;
+function AsToAc(arrChars: array of byte) : string;       //Перевод ASCII в ANSI
  Var
    i,kod: byte;
    arrTemp: array of byte;
@@ -129,14 +124,11 @@ function AsToAc(arrChars: array of byte) : string;
 
 (******************************************************************************)
 
-procedure TabClear(n,r,k:integer);
+procedure TabClear(n,r,k:integer);                 //Очистка таблиц
 var iStroki,iStolbca:integer;
 begin
 if k=1 then  begin
-//очистка ячеек таблицы
-for iStolbca:=n to Form1.StringGrid1.ColCount do
-for iStroki:=r to Form1.StringGrid1.RowCount do
-  Form1.StringGrid1.Cells[iStolbca,iStroki]:='';
+
 end;
 if k=2 then  begin
 //очистка ячеек таблицы
@@ -149,7 +141,7 @@ end;
 (******************************************************************************)
 
 procedure TForm1.StringGrid2DrawCell(Sender: TObject; ACol, ARow: Integer;
-  Rect: TRect; State: TGridDrawState);
+  Rect: TRect; State: TGridDrawState);                    //Перерисовка STRGRD2
 var Flag : Integer;
 begin
 //Читаем значение флага, которое записано под видом указателя на объект.
@@ -195,7 +187,7 @@ end;
 (******************************************************************************)
 
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TForm1.Button1Click(Sender: TObject);      //Базовое заполнение ячеек
 var i,j,k:integer; iTmp:integer;
 begin
 iTmp:=17;
@@ -217,7 +209,7 @@ end;
 
 (******************************************************************************)
 
-procedure TForm1.Edit(Sender: TObject);
+procedure TForm1.Edit(Sender: TObject); //Занесение изменений таблицы в массив
  var i,j,k:integer;
       res,hexve:real;
 begin
@@ -229,11 +221,6 @@ HexVE :=strtofloat(Form1.stringgrid2.Cells[i,j]);
 buf[k]:=round(HexVE*128);
 inc(k);
 end;
-i:=VE_SZ;
- while i<VEE_SZ-1 do begin
-  eeprom:=eeprom+Format('%0x',[buf[i]]);
-  inc(i);
- end;
 except
 on E : Exception do
       ShowMessage(E.ClassName+'Edit ошибка с сообщением : '+E.Message);
@@ -246,7 +233,7 @@ end;
 
 (******************************************************************************)
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TForm1.Button2Click(Sender: TObject);     //Открыть EEPROM
 var
   i, j,iTmp: Integer;
   f1:textfile;
@@ -325,33 +312,13 @@ end;
 f:=0;
 Form3.Button1Click(Sender);
 (**********Завершение*********)
- {  //а в заголовок формы добавить спецификацию файла
-AssignFile(F1, s);
-Reset(F1);
 
-with StringGrid2 do
-   begin
-     // Get number of columns
-    Readln(f1, iTmp);
-     ColCount := iTmp;
-     // Get number of rows
-    Readln(f1, iTmp);
-     RowCount := iTmp;
-     // loop through cells & fill in values
-    for i := 1 to ColCount-1 do
-       for j := 1 to RowCount-1 do
-       begin
-         Readln(f1, st);
-         Cells[i, j] := st;
-       end;
-   end;
-CloseFile(F1); }
     end;
 
 end;
 (******************************************************************************)
 
-procedure TForm1.Button3Click(Sender: TObject);
+procedure TForm1.Button3Click(Sender: TObject);     //Сохранить EEPROM
 var
    i, k: Integer;
   f1:textfile;
@@ -401,25 +368,10 @@ if Form1.SaveDialog1.Execute then begin
   end;
 
 (**********Завершение*********)
-  {//сохранить текст в файле и далее
-AssignFile(F1, s);
-Rewrite(F1);
-with StringGrid2 do
-   begin
-     // Write number of Columns/Rows
-    Writeln(f1, ColCount);
-     Writeln(f1, RowCount);
-     // loop through cells
-    for i := 1 to ColCount - 1 do
-       for k := 1 to RowCount - 1 do
-         Writeln(F1, Cells[i, k]);
-   end;
-
-
-CloseFile(F1);  }
-
 end;
 end;
+
+
 (******************************************************************************)
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -434,21 +386,6 @@ OpenDialog1.Filter := 'Secu3 Logfile|*.csv|';
   // Выбор текстовых файлов как стартовый тип фильтра
  OpenDialog1.FilterIndex := 1;
 //Обработчик события СОЗДАНИЯ ФОРМЫ
-//При создании формы удалить текст из
-//Memo1 - рабочей области редактора
-Memo1.Clear;
-//заполнить рабочей областью редактора
-//(то есть развернуть элемент Memo1 во)
-//всю клиентскую область окна формы
-Memo1.Align:=alClient;
-//и установить равноширинный шрифт Courier
-Memo1.Font.Name:='Courier';
-//Пока S ='',  редактируемый текст не сохранен в файле
-S:='';
-//а в дальнейшем S может представлять
-//спецификацию файла.
-//Считать, что текст не модифицирован
-Memo1.Modified:=false;
 //Записываем разметку stringGrid2
 //разметка строк
 stringGrid2.Cells[0,0]:='Об.\Расх.';
@@ -514,171 +451,57 @@ Showmessage('Программа предназначена для составления таблиц VE по логам.'+#13#10
 +#13#10+#13#10+#13#10+'*Пункт 1,4 и 5 выполняется только в случае первоначальной настройки.');
 end;
 (******************************************************************************)
-
-procedure TForm1.N3Click(Sender: TObject);
-begin
-if Memo1.Modified then begin //если текст Memo1 был
-  // изменён, то предложить диалог для выбора файла
-  case MessageDlg('Текст был изменен. Сохранить данные'+
-         ' в файле по выбору?',   mtConfirmation,
-        [mbYes, mbNo, mbCancel], 0) of
-    6{idYes}: begin   // сохранить текст в файле, выбрав его
-        //в диалоге ФАЙЛ.СОХРАНИТЬ КАК...
-        N7Click(Self);
-        S:='';
-memo1.Lines.Clear;
-        //перейти к диалогу ФАЙЛ.ОТКРЫТЬ
-        end;
-    7{idYes}: begin   // сохранить текст в файле, выбрав его
-        //в диалоге ФАЙЛ.СОХРАНИТЬ КАК...
-        begin
-S:='';
-memo1.Lines.Clear; end;
-        //перейти к диалогу ФАЙЛ.ОТКРЫТЬ
-        end;
-  end;
-end
-else begin
-S:='';
-memo1.Lines.Clear; end;
-end;
- (******************************************************************************)
-
 procedure TForm1.N3DPlot1Click(Sender: TObject);
 begin
 form3.Visible:=true;
+Form3.Button1Click(Sender);
 end;
 (******************************************************************************)
 
-procedure TForm1.N4Click(Sender: TObject);
-var s:string;
-begin
-TabClear(0,0,1);
-memo1.Clear;
-//Обработчик щелчка на пункте меню ФАЙЛ.ОТКРЫТЬ...
-if Memo1.Modified then begin //если текст Memo1 был
-  // изменён, то предложить диалог для выбора файла
-  case MessageDlg('Текст был изменен. Сохранить данные'+
-         ' в файле по выбору?',   mtConfirmation,
-        [mbYes, mbNo, mbCancel], 0) of
-    6{idYes}: begin   // сохранить текст в файле, выбрав его
-        //в диалоге ФАЙЛ.СОХРАНИТЬ КАК...
-        N7Click(Self);
-        //перейти к диалогу ФАЙЛ.ОТКРЫТЬ
-        end;
-    {2}idCancel: exit;//выйти из диалога ФАЙЛ.ОТКРЫТЬ
-                                 //в редактор без сохранения
-    {7}idNo:;//не сохранять текст в файле и
-                    //перейти к диалогу ФАЙЛ. ОТКРЫТЬ
-    end; //case
-  end;//if Memo1.Modified
-//Открытие окна диалога ФАЙЛ.ОТКРЫТЬ для выбора папки
-//и файла, текст из которого следует
-//поместить в Memo1 - рабочую область редактора.
-if Form1.OpenDialog1.Execute then begin //если выбран файл
-  S:=OpenDialog1.FileName;//то S присвоить спецификацию файла,
-  Memo1.Lines.LoadFromFile(S);//загрузить текст из файла в Memo1
-  Memo1.Modified:=false;//считать, что текст не модифицирован,
-  //а в заголовок формы добавить спецификацию файла
-  Form1.Caption:=hexname+'  ' + S;
-  end;//if Form1.OpenDialog1.Execute
-  a := Memo1.Lines.Count;// кол-во строк Memo1
-  //ЗАДАНИЕ ШИРИНЫ ОКНА ТАБЛИЦЫ
-{Form1.StringGrid1.Width:=0;
-for i:=0 to Form1.StringGrid1.ColCount -1 do
-Form1.StringGrid1.Width:=Form1.StringGrid1.Width
-  +Form1.StringGrid1.ColWidths[i];}
-
-memo1.Visible:=false;
-rc:=Form1.StringGrid1.RowCount;
-Parse(Sender);
-n10.Enabled:=true;
-end;
-(******************************************************************************)
-
-
-procedure TForm1.N5Click(Sender: TObject);
+procedure TForm1.N5Click(Sender: TObject);  //Открыть Лог
 var k,s:TStringList;i:integer; fname:string;
 begin
 TabClear(0,0,1);
  i:=0;
-//поместить в Memo1 - рабочую область редактора.
+       try
+        Application.processMessages;
 if Form1.OpenDialog1.Execute then begin //если выбран файл
   fname:=OpenDialog1.FileName;
 
-s:=TStringList.Create;k:=TStringList.Create;
+s:=TStringList.Create;
+k:=TStringList.Create;
 
 k.LoadFromFile(fname);
 Form1.Caption:='VE LogTuner '+hexname+'  ' + fname;
 s.Delimiter:=','; // Это разделитель между элементами
-StringGrid1.Rows[i].Delimiter:=s.Delimiter;
-StringGrid1.RowCount:=k.Count;
-StringGrid1.ColCount:=1;
+loglen:=k.Count;
+SetLength(data,loglen,3);
 for i:=0 to k.Count-1 do begin
  s.DelimitedText:=k[i];
- if StringGrid1.ColCount<s.Count then
-  StringGrid1.ColCount:=s.Count;
-  StringGrid1.Rows[i].DelimitedText:=s.DelimitedText;
+ // StringGrid1.Rows[i].DelimitedText:=s.DelimitedText;
+ data[i,0]:=s[1];
+ data[i,1]:=s[8];
+ data[i,2]:=s[31];
 end;
 s.free;k.Free;
 n10.Enabled:=true;
 N7.Enabled:=true;
- end;
+ end except
+    on E : Exception do
+      ShowMessage(E.ClassName+' ошибка с сообщением : '+E.Message);
+
+       end;
 end;
+
+(******************************************************************************)
+procedure TForm1.N8Click(Sender: TObject);           //Завершение работы
+begin
+Close;
+end;
+
 (******************************************************************************)
 
-procedure TForm1.N6Click(Sender: TObject);
-begin
-if s='' then N7Click(Self) else Memo1.Lines.SaveToFile(S);
-
-end;
-
-procedure TForm1.N7Click(Sender: TObject);
-begin
-//Обработчик щелчка на пункте меню ФАЙЛ.СОХРАНИТЬ КАК...
-//Открытие окна диалога для выбора папки и
-//задания имени и типа файла, в котором следует
-//сохранить текст из Memo1-рабочей области редактора
-if Form1.SaveDialog1.Execute then begin
-  //Если файл выбран,
-  //то S присвоить спецификацию файла,
-  S:=SaveDialog1.FileName;
-  //сохранить текст в файле и далее
-  Memo1.Lines.SaveToFile(S);
-  //считать, что текст не модифицирован,
-  Memo1.Modified:=false;
-  //а в заголовок формы добавить
-  //спецификацию файла
-  Form1.Caption:='Form1' + '  ' +  S;
-  end;
-end;
-(******************************************************************************)
-
-procedure TForm1.N8Click(Sender: TObject);
-begin
-if Memo1.Modified then begin //если текст Memo1 был
-  // изменён, то предложить диалог для выбора файла
-  case MessageDlg('Текст был изменен. Сохранить данные'+
-         ' в файле по выбору?',   mtConfirmation,
-        [mbYes, mbNo, mbCancel], 0) of
-    6{idYes}: begin   // сохранить текст в файле, выбрав его
-        //в диалоге ФАЙЛ.СОХРАНИТЬ КАК...
-        N7Click(Self);
-        //перейти к диалогу ФАЙЛ.ОТКРЫТЬ
-        end;
-    7{idYes}: begin   // сохранить текст в файле, выбрав его
-        //в диалоге ФАЙЛ.СОХРАНИТЬ КАК...
-        close;
-        //перейти к диалогу ФАЙЛ.ОТКРЫТЬ
-        end;
-  end;
-end
-else close;
-
-end;
-(******************************************************************************)
-
-function zero(s:string):string;
+function zero(s:string):string;   //Удаление лишних нулей
 var i:integer; p,p1:char;
 begin
 i:=1;
@@ -693,32 +516,12 @@ if i=5 then i:=i-1;
 Delete(s, 1, i);
 result :=s
 end;
-(******************************************************************************)
 
-procedure TForm1.Parse(Sender: TObject);
-var i,j,k:integer;
-begin
-with TStringList.Create do
-  begin
-    Delimiter:=',';
-    { for j := 0 to Count - 1 do
-      ShowMessage(Strings[j]);}
-    /////Загружаем в Лист содержимое БД
-    for i:= 0 to a-1 do begin
-    k:=0;
-    DelimitedText:=memo1.Lines[i];
-      for j:=0 to count -1 do begin
-     stringGrid1.Cells[k,i]:=Strings[k]; ;inc(k)
-      end;
-    end;
-  Free;
-  end;
-end;
 (******************************************************************************)
 
 
 
-procedure smlst(arh:Pointer;n:integer;k:integer);
+procedure smlst(arh:Pointer;n:integer;k:integer);    //Пересчет значений в STRGRD2
 var i:integer; n1:array [0..15] of integer;
  s1:array [0..15] of real;
   sr1:array [0..15] of real;
@@ -801,26 +604,12 @@ for i:=0 to n do
   inc(n1[15]);
  end;
  end;
- //////Проверка
-//   for i:= 0 to 11 do
-// form1.Memo2.Lines.Add(inttostr(n1[i]));
-///////////////
 //Нахождение среднего арифметического и перевод в сотые
 for i := 0 to 15 do
  begin
    if n1[i]> 0 then
    sr1[i]:=(s1[i]/n1[i])/100
  end;
-   //////Проверка
-   ///
- {  i:=0;
-   for i:= 0 to 13 do begin
-   form1.Memo2.Lines.Add(FormatFloat('0.00', sr1[i]));
-   if i=13 then
-    form1.Memo2.Lines.Add('/////////');
-
-   end;  }
-///////////////
 /// Выбираем поле куда вставлять значения
 for i:= 2 to form1.stringGrid2.Rowcount do begin
 if (sr1[i-2]>0) or (sr1[i-2]<0) then begin
@@ -841,27 +630,30 @@ for i:=0 to 15 do  begin
   s1[i]:=0;
   sr1[i]:=0;
 end;
-
+if k=16 then  begin
+SetLength(data,0,0);
+Finalize(data);
+end;
 end;
 
 (******************************************************************************)
 
-procedure dk(s:integer);
+procedure dk(s:integer);      //Занесение значений оборотов и лямды в массив и его сортировка
 var i,j,k,n:integer; f:string; b,b1:real;
 begin
-SetLength(rash,2,Form1.StringGrid1.RowCount);
+SetLength(rash,2,length(data));
 FormatSettings.DecimalSeparator:='.';
     k:=8;
     j:=0;
       if s<10 then f:='0'+inttostr(s)
-      else
-      f:=inttostr(s);
+      else         f:=inttostr(s);
 
-for i:= 0 to Form1.StringGrid1.RowCount do begin
+for i:= 0 to length(data)-1 do begin
       //array[столбец,строка]
-        if form1.stringGrid1.Cells[k,i]= f then begin
-          rash[0,j]:=strtofloat(zero(form1.stringGrid1.Cells[k-7,i]));
-          rash[1,j]:=strtofloat(form1.stringGrid1.Cells[k+23,i]);
+        if data[i,1]=f then
+        begin
+          rash[0,j]:=strtofloat(zero(data[i,0]));
+          rash[1,j]:=strtofloat(data[i,2]);
           inc(j);
         end
 
@@ -880,21 +672,18 @@ end;
   rash[1,i]:=rash[1,n];
   rash[1,n]:=b1;
   end;
-  //Проверка-вывод в мемо
-// for i := 0 to j-1 do
- // form1.Memo2.Lines.Add(rash[0,i]+' '+rash[1,i]);
-  /////////////////////////
-//
+
 smlst(rash,j,s);
 SetLength(rash,0,0);
 Finalize(rash);
-//FillChar(rash, SizeOf(rash), #0);
 end;
 (******************************************************************************)
 
-procedure TForm1.N10Click(Sender: TObject);
+procedure TForm1.N10Click(Sender: TObject);   //Запуск пересчета значений
 var i:integer;
 begin
+if(length(data)>0 )then
+
    for i:= 1 to Form1.StringGrid2.ColCount-1 do
    try
     dk(i);
@@ -902,7 +691,6 @@ begin
     on E : Exception do
       ShowMessage(E.ClassName+' ошибка с сообщением : '+E.Message+' переменная равна '+inttostr(i));
    end;
-
      form1.Caption:=form1.Caption+ ' - Изменено';
      Button3.Enabled:=true;
      N3DPlot1.Enabled:=true;
