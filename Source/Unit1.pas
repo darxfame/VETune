@@ -61,6 +61,12 @@ type
     FontStyle : TFontStyles;
     BrColor : TColor;
   end;
+  TMyThread = class(TThread)
+    private
+    { Private declarations }
+  protected
+    procedure Execute; override;
+  end;
 
 var
   Form1: TForm1;
@@ -71,8 +77,8 @@ var
   rc:integer;
   gEditCol : Integer = -1;
   gEditRow : Integer = -1;
-
-
+  MyThread: TMyThread;
+  fname,frname:string;
 
 implementation
 
@@ -458,21 +464,26 @@ Form3.Button1Click(Sender);
 end;
 (******************************************************************************)
 
-procedure TForm1.N5Click(Sender: TObject);  //Открыть Лог
-var k,s:TStringList;i:integer; fname:string;
+procedure TForm1.N5Click(Sender: TObject);         //Открытие лог файла
 begin
 TabClear(0,0,1);
- i:=0;
-       try
-        Application.processMessages;
-if Form1.OpenDialog1.Execute then begin //если выбран файл
+if Form1.OpenDialog1.Execute then //если выбран файл
   fname:=OpenDialog1.FileName;
+ MyThread:=TMyThread.Create(False);
+ MyThread.Priority:=tpNormal;
+n10.Enabled:=true;
+N7.Enabled:=true;
+end;
 
+procedure TMyThread.Execute;
+var k,s:TStringList;i:integer;
+begin
+ i:=0;
+        try
 s:=TStringList.Create;
 k:=TStringList.Create;
 
 k.LoadFromFile(fname);
-Form1.Caption:='VE LogTuner '+hexname+'  ' + fname;
 s.Delimiter:=','; // Это разделитель между элементами
 loglen:=k.Count;
 SetLength(data,loglen,3);
@@ -482,15 +493,13 @@ for i:=0 to k.Count-1 do begin
  data[i,0]:=s[1];
  data[i,1]:=s[8];
  data[i,2]:=s[31];
-end;
-s.free;k.Free;
-n10.Enabled:=true;
-N7.Enabled:=true;
+ Form1.Caption:='VE LogTuner'+' Открыт ' + fname+hexname;
  end except
     on E : Exception do
-      ShowMessage(E.ClassName+' ошибка с сообщением : '+E.Message);
+      ShowMessage(E.ClassName+' ошибка с сообщением =) : '+E.Message);
 
        end;
+s.free;k.Free;
 end;
 
 (******************************************************************************)
