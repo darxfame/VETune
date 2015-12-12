@@ -3,7 +3,8 @@ program VETune;
 uses
   Forms,
   Unit1 in 'Unit1.pas' {Form1},
-  Unit3 in 'Unit3.pas' {Form3};
+  Unit3 in 'Unit3.pas' {Form3},
+  WindowThread in 'WindowThread.pas';
 
 {$R *.res}
 

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart;
+  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart,math,WindowThread;
 
 type
   TForm1 = class(TForm)
@@ -99,7 +99,7 @@ Var
   buf: array [0..BUF_SZ-1] of byte; // буфер чтения
   hexname:string;   //Имя прошивки
   loglen:integer;
-  data: array of array of string;
+  data: array of array of real;
 
 {$R *.dfm}
 
@@ -188,7 +188,7 @@ begin
   end else if Button = mbRight then begin
     Rows[Row].Objects[Col] := TObject(0); //Или: := Pointer(0);
   end;
-  end; 
+  end;
 end;
 (******************************************************************************)
 
@@ -230,10 +230,8 @@ end;
 except
 on E : Exception do
       ShowMessage(E.ClassName+'Edit ошибка с сообщением : '+E.Message);
-
 end;
 eeprom:='';
-
 end;
 
 
@@ -245,11 +243,10 @@ var
   f1:textfile;
   st:string;
   boot:File;
-
+  TT: TThreadWindow;
   srcPtr : PChar;
   buf16:byte;
-
- f:Integer;
+  f:Integer;
  HexVE:string;
   k: Integer;
   res:real;
@@ -273,7 +270,7 @@ N4.Enabled:=true;
 if Form1.OpenDialog2.Execute then begin //если выбран файл
   S:=OpenDialog2.FileName;//то S присвоить спецификацию файла,
   TabClear(1,1,2);   //очистка окна
-
+  TT := TThreadWindow.Show;
    for i := 0 to BUF_SZ-1 do
 buf[i]:=0;
 try
@@ -301,7 +298,6 @@ end;
 except
 on E : Exception do
       ShowMessage(E.ClassName+'STRGRD ошибка с сообщением : '+E.Message);
-
 end;
 try
 for i := Namen_sz to namee_sz-1 do begin
@@ -311,9 +307,8 @@ end;
   except
 on E : Exception do
       ShowMessage(E.ClassName+'AstoAC ошибка с сообщением : '+E.Message);
-
 end;
-
+tt.Destroy;
 (**********Очистка переменных*********)
 f:=0;
 Form3.Button1Click(Sender);
@@ -476,30 +471,33 @@ N7.Enabled:=true;
 end;
 
 procedure TMyThread.Execute;
-var k,s:TStringList;i:integer;
+var k,s:TStringList;i:integer; F: TThreadWindow;
 begin
  i:=0;
         try
 s:=TStringList.Create;
 k:=TStringList.Create;
-
 k.LoadFromFile(fname);
 s.Delimiter:=','; // Это разделитель между элементами
 loglen:=k.Count;
 SetLength(data,loglen,3);
+F := TThreadWindow.Show;
 for i:=0 to k.Count-1 do begin
  s.DelimitedText:=k[i];
- // StringGrid1.Rows[i].DelimitedText:=s.DelimitedText;
- data[i,0]:=s[1];
- data[i,1]:=s[8];
- data[i,2]:=s[31];
- Form1.Caption:='VE LogTuner'+' Открыт ' + fname+hexname;
- end except
+ data[i,0]:=strtoint(s[1]);
+ data[i,1]:=strtoint(s[8]);
+ data[i,2]:=strtofloat(s[31]);
+ end;
+ F.Destroy;
+
+Form1.Caption:='VE LogTuner'+' Открыт ' + fname+hexname;
+ s.free;k.Free;
+ except
     on E : Exception do
       ShowMessage(E.ClassName+' ошибка с сообщением =) : '+E.Message);
 
        end;
-s.free;k.Free;
+
 end;
 
 (******************************************************************************)
@@ -507,31 +505,9 @@ procedure TForm1.N8Click(Sender: TObject);           //Завершение работы
 begin
 Close;
 end;
-
 (******************************************************************************)
-
-function zero(s:string):string;   //Удаление лишних нулей
-var i:integer; p,p1:char;
-begin
-i:=1;
-p:=s[i];
-p1:=s[i+1];
-while p=p1 do begin
- inc(i);
-p:=s[i];
-p1:=s[i+1];
-end;
-if i=5 then i:=i-1;
-Delete(s, 1, i);
-result :=s
-end;
-
-(******************************************************************************)
-
-
-
 procedure smlst(arh:Pointer;n:integer;k:integer);    //Пересчет значений в STRGRD2
-var i:integer; n1:array [0..15] of integer;
+var i,cs:integer; n1:array [0..15] of integer;
  s1:array [0..15] of real;
   sr1:array [0..15] of real;
   arr: array of array of real;
@@ -539,93 +515,48 @@ var i:integer; n1:array [0..15] of integer;
   zn:real;
 begin
 Pointer(arr) := arh;
-
 for i:=0 to 15 do  begin
   n1[i]:=0;
   s1[i]:=0;
   sr1[i]:=0;
+end;  Try
+for i:=0 to n do begin
+cs:=Floor(arr[0,i]/1);
+case cs of
+600..719:begin s1[0]:=s1[0]+arr[1,i]; inc(n1[0]);end;
+720..839:begin s1[1]:=s1[1]+arr[1,i]; inc(n1[1]);end;
+840..989:begin s1[2]:=s1[2]+arr[1,i]; inc(n1[2]);end;
+990..1169:begin s1[3]:=s1[3]+arr[1,i]; inc(n1[3]);end;
+1170..1379:begin s1[4]:=s1[4]+arr[1,i]; inc(n1[4]);end;
+1380..1649:begin s1[5]:=s1[5]+arr[1,i]; inc(n1[5]);end;
+1650..1949:begin s1[6]:=s1[6]+arr[1,i]; inc(n1[6]);end;
+1950..2309:begin s1[7]:=s1[7]+arr[1,i]; inc(n1[7]);end;
+2310..2729:begin s1[8]:=s1[8]+arr[1,i]; inc(n1[8]);end;
+2730..3209:begin s1[9]:=s1[9]+arr[1,i]; inc(n1[9]);end;
+3210..3839:begin s1[10]:=s1[10]+arr[1,i]; inc(n1[10]);end;
+3840..4529:begin s1[11]:=s1[11]+arr[1,i]; inc(n1[11]);end;
+4530..5369:begin s1[12]:=s1[12]+arr[1,i]; inc(n1[12]);end;
+5370..6359:begin s1[13]:=s1[13]+arr[1,i]; inc(n1[13]);end;
+6360..7499:begin s1[14]:=s1[14]+arr[1,i]; inc(n1[14]);end;
+7500..9000:begin s1[15]:=s1[15]+arr[1,i]; inc(n1[15]);end;
 end;
+end;
+Except
+      ShowMessage('Неизвестная ошибка');
+  end;
 
-for i:=0 to n do
- begin
- if (arr[0,i]>=600) and (arr[0,i]<720) then begin
-  s1[0]:=s1[0]+arr[1,i];
-  inc(n1[0]);
- end;
-  if (arr[0,i]>=720) and (arr[0,i]<840) then begin
-  s1[1]:=s1[1]+arr[1,i];
-  inc(n1[1]);
- end;
-  if (arr[0,i]>=840) and (arr[0,i]<990) then begin
-  s1[2]:=s1[2]+arr[1,i];
-  inc(n1[2]);
- end;
-  if (arr[0,i]>=990) and (arr[0,i]<1170) then begin
-  s1[3]:=s1[3]+arr[1,i];
-  inc(n1[3]);
- end;
-  if (arr[0,i]>=1170) and (arr[0,i]<1380) then begin
-  s1[4]:=s1[4]+arr[1,i];
-  inc(n1[4]);
- end;
-  if (arr[0,i]>=1380) and (arr[0,i]<1650) then begin
-  s1[5]:=s1[5]+arr[1,i];
-  inc(n1[5]);
- end;
-  if (arr[0,i]>=1650) and (arr[0,i]<1950) then begin
-  s1[6]:=s1[6]+arr[1,i];
-  inc(n1[6]);
- end;
-  if (arr[0,i]>=1950) and (arr[0,i]<2310) then begin
-  s1[7]:=s1[7]+arr[1,i];
-  inc(n1[7]);
- end;
-  if (arr[0,i]>=2310) and (arr[0,i]<2730) then begin
-  s1[8]:=s1[8]+arr[1,i];
-  inc(n1[8]);
- end;
-  if (arr[0,i]>=2730) and (arr[0,i]<3210) then begin
-  s1[9]:=s1[9]+arr[1,i];
-  inc(n1[9]);
- end;
-  if (arr[0,i]>=3210) and (arr[0,i]<3840) then begin
-  s1[10]:=s1[10]+arr[1,i];
-  inc(n1[10]);
- end;
-  if (arr[0,i]>=3840) and (arr[0,i]<4530) then begin
-  s1[11]:=s1[11]+arr[1,i];
-  inc(n1[11]);
- end;
- if (arr[0,i]>=4530) and (arr[0,i]<5370) then begin
-  s1[12]:=s1[12]+arr[1,i];
-  inc(n1[12]);
- end;
- if (arr[0,i]>=5370) and (arr[0,i]<6360) then begin
-  s1[13]:=s1[13]+arr[1,i];
-  inc(n1[13]);
- end;
- if (arr[0,i]>=6360) and (arr[0,i]<7500) then begin
-  s1[14]:=s1[14]+arr[1,i];
-  inc(n1[14]);
- end;
- if (arr[0,i]>=7500)then begin
-  s1[15]:=s1[15]+arr[1,i];
-  inc(n1[15]);
- end;
- end;
 //Нахождение среднего арифметического и перевод в сотые
 for i := 0 to 15 do
  begin
-   if n1[i]> 0 then
-   sr1[i]:=(s1[i]/n1[i])/100
+   if n1[i]>0 then  sr1[i]:=(s1[i]/n1[i]);
  end;
 /// Выбираем поле куда вставлять значения
 for i:= 2 to form1.stringGrid2.Rowcount do begin
-if (sr1[i-2]>0) or (sr1[i-2]<0) then begin
+if not (sr1[i-2]=0) then begin
 //array[столбец,строка]
  zn:=strtofloat(form1.stringGrid2.Cells[k,i-1])+sr1[i-2];
- znac:=FormatFloat( '0.##',(zn));
-    if form1.stringGrid2.Cells[k,i-1]<> znac then
+ znac:=floattostrf(zn,fffixed,3,2);
+    if not (form1.stringGrid2.Cells[k,i-1]=znac) then
     begin
       form1.stringGrid2.Cells[k,i-1]:=znac;
     end;
@@ -639,60 +570,45 @@ for i:=0 to 15 do  begin
   s1[i]:=0;
   sr1[i]:=0;
 end;
-if k=16 then  begin
-SetLength(data,0,0);
-Finalize(data);
-end;
+
 end;
 
 (******************************************************************************)
 
 procedure dk(s:integer);      //Занесение значений оборотов и лямды в массив и его сортировка
-var i,j,k,n:integer; f:string; b,b1:real;
+var i,j,k,n:integer; f:string; b,b1:real; switch:boolean;
 begin
 SetLength(rash,2,length(data));
 FormatSettings.DecimalSeparator:='.';
     k:=8;
     j:=0;
-      if s<10 then f:='0'+inttostr(s)
-      else         f:=inttostr(s);
 
 for i:= 0 to length(data)-1 do begin
       //array[столбец,строка]
-        if data[i,1]=f then
+        if data[i,1]=s then
         begin
-          rash[0,j]:=strtofloat(zero(data[i,0]));
-          rash[1,j]:=strtofloat(data[i,2]);
+          rash[0,j]:=data[i,0];
+          rash[1,j]:=data[i,2]/100;
           inc(j);
         end
-
 end;
 
-//Если не нулевой,сортируем массив
-  for i:=0 to j-2 do
-  for n:=i+1 to j-1 do
-  if rash[0,i]>rash[0,n] then begin
-  //сортируем по 0 столбцу
-  b:=rash[0,i];
-  rash[0,i]:=rash[0,n];
-  rash[0,n]:=b;
-  //переставляем вместе с ним 1-й
-   b1:=rash[1,i];
-  rash[1,i]:=rash[1,n];
-  rash[1,n]:=b1;
-  end;
+smlst(rash,j-1,s);
 
-smlst(rash,j,s);
+if s=16 then  begin
+SetLength(data,0,0);
+Finalize(data);
+end;
 SetLength(rash,0,0);
 Finalize(rash);
 end;
 (******************************************************************************)
 
 procedure TForm1.N10Click(Sender: TObject);   //Запуск пересчета значений
-var i:integer;
+var i:integer;  F: TThreadWindow;
 begin
 if(length(data)>0 )then
-
+ F := TThreadWindow.Show;
    for i:= 1 to Form1.StringGrid2.ColCount-1 do
    try
     dk(i);
@@ -700,6 +616,7 @@ if(length(data)>0 )then
     on E : Exception do
       ShowMessage(E.ClassName+' ошибка с сообщением : '+E.Message+' переменная равна '+inttostr(i));
    end;
+   F.Destroy;
      form1.Caption:=form1.Caption+ ' - Изменено';
      Button3.Enabled:=true;
      N3DPlot1.Enabled:=true;
