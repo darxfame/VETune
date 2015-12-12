@@ -462,12 +462,11 @@ end;
 procedure TForm1.N5Click(Sender: TObject);         //Открытие лог файла
 begin
 TabClear(0,0,1);
-if Form1.OpenDialog1.Execute then //если выбран файл
+if Form1.OpenDialog1.Execute then begin//если выбран файл
   fname:=OpenDialog1.FileName;
  MyThread:=TMyThread.Create(False);
  MyThread.Priority:=tpNormal;
-n10.Enabled:=true;
-N7.Enabled:=true;
+N7.Enabled:=true; end
 end;
 
 procedure TMyThread.Execute;
@@ -491,6 +490,7 @@ for i:=0 to k.Count-1 do begin
  F.Destroy;
 
 Form1.Caption:='VE LogTuner'+' Открыт ' + fname+hexname;
+Form1.n10.Enabled:=true;
  s.free;k.Free;
  except
     on E : Exception do
@@ -621,6 +621,7 @@ if(length(data)>0 )then
      Button3.Enabled:=true;
      N3DPlot1.Enabled:=true;
      N3DPlot2.Enabled:=true;
+     N10.Enabled:=false;
 end;
 (******************************************************************************)
 
