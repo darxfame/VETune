@@ -41,7 +41,7 @@ object Form1: TForm1
     DefaultColWidth = 50
     RowCount = 17
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSizing, goColSizing]
-    ScrollBars = ssHorizontal
+    ScrollBars = ssNone
     TabOrder = 0
     OnDrawCell = StringGrid2DrawCell
     OnMouseUp = StringGrid2MouseUp
