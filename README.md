@@ -1,4 +1,4 @@
 # VETune
 
-#(RUS)Пока советую не скачивать релиз, была найдена ошибка в вычислениях. Ждите исправлений.
-#(ENG)While I advise you not to download the release, a bug was found in the calculation. Wait for corrections.
+#(RUS)Версия 1.3 полностью готова к использованию. О всех багах прошу сообщать на akochegizov@gmail.com
+#(ENG)Version 1.3 is fully ready for use. Of all the gods I beg to report on akochegizov@gmail.com
