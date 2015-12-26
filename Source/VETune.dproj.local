@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.629,C:\Users\Артем\Documents\RAD Studio\Projects\Unit1.pas=I:\Семестр2 2012-13\Работы\Текстовый редактор\Unit1.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.455,=C:\Users\Артем\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.286,=C:\Users\Артем\Desktop\Новая папка\Текстовый редактор 3D\Unit3.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.345,C:\Users\Артем\Desktop\Новая папка\Текстовый редактор\VETune.dproj=C:\Users\Артем\Desktop\Новая папка\Текстовый редактор\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.345,C:\Users\Артем\Desktop\Новая папка\Текстовый редактор\Project1.dproj=C:\Users\Артем\Desktop\Новая папка\Текстовый редактор\VETune.dproj</Transaction>
     <Transaction>1899.12.30 00:00:00.000.832,=C:\WORK\Новая папка\VE Log Tuner v1.2 - копия ошибка вычислений - копия\WindowThread.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.950,I:\Семестр2 2012-13\Работы\Текстовый редактор\Project1.dproj=C:\Users\Артем\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.950,C:\Users\Артем\Documents\RAD Studio\Projects\Project1.dproj=I:\Семестр2 2012-13\Работы\Текстовый редактор\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.630,=C:\WORK\Новая папка\VE Log Tuner v1.2 - копия ошибка вычислений - копия\Unit2.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.145,C:\WORK\Новая папка\VE Log Tuner v1.2 - копия ошибка вычислений - копия\Unit2.pas=</Transaction>
     <Transaction>1899.12.30 00:00:00.000.886,J:\Семестр2 2012-13\Работы\Текстовый редактор\Project1.dproj=J:\Семестр2 2012-13\Работы\Текстовый редактор\Project1.dproj</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.630,=C:\WORK\Новая папка\VE Log Tuner v1.2 - копия ошибка вычислений - копия\Unit2.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.629,I:\Семестр2 2012-13\Работы\Текстовый редактор\Unit1.dfm=C:\Users\Артем\Documents\RAD Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.629,I:\Семестр2 2012-13\Работы\Текстовый редактор\Unit1.pas=C:\Users\Артем\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.286,=C:\Users\Артем\Desktop\Новая папка\Текстовый редактор 3D\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.629,C:\Users\Артем\Documents\RAD Studio\Projects\Unit1.dfm=I:\Семестр2 2012-13\Работы\Текстовый редактор\Unit1.dfm</Transaction>
   </Transactions>
 </BorlandProject>

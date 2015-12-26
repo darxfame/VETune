@@ -45,6 +45,8 @@ type
     procedure Help1Click(Sender: TObject);
     procedure Edit(Sender: TObject);
     procedure N8Click(Sender: TObject);
+    procedure StringGrid2MouseMove(Sender: TObject; Shift: TShiftState; X,
+      Y: Integer);
 
 
   private
@@ -79,7 +81,9 @@ var
   gEditRow : Integer = -1;
   MyThread: TMyThread;
   fname,frname:string;
-
+    r: integer;  //hint
+    c: integer;
+    nvhod: array[0..15,0..15] of integer;
 implementation
 
 uses Unit3;
@@ -153,13 +157,14 @@ begin
 //Читаем значение флага, которое записано под видом указателя на объект.
   Flag := Integer(StringGrid2.Rows[ARow].Objects[ACol]);
   //Если флаг не равен
-  if (Flag <> 1) then Exit;
+  if (Flag <> 1) and (Flag <> 2)then Exit;
 with StringGrid2 do
   begin
   if (ACol>0) and(ARow>0) then begin
    try
     if not (edit1.Text = Cells[ACol, ARow])then
 Canvas.Brush.Color:=clYellow;
+if (Flag = 2) then begin Canvas.Brush.Color:=claqua; end;
    except
    end;
    Canvas.FillRect(Rect); //Текст тоже будет закрашен, его нужно перерисовать:
@@ -170,6 +175,26 @@ end;
 
 (******************************************************************************)
 
+procedure TForm1.StringGrid2MouseMove(Sender: TObject; Shift: TShiftState; X,  //Hint
+  Y: Integer);
+var
+  ARow: integer;
+  ACol: integer;
+begin
+StringGrid2.MouseToCell(X, Y, ACol, ARow);
+with StringGrid2 do
+try
+  if ((ACol<>C) or (ARow<>R)) then
+    begin
+      C:=ACol; R:=ARow;
+     Application.CancelHint;
+      //StringGrid2.Hint:='('+IntToStr(C)+', '+IntToStr(R)+')';
+      StringGrid2.Hint:=inttostr(nvhod[c,r-1]);
+    end;
+except
+end;
+end;
+(******************************************************************************)
 procedure TForm1.StringGrid2MouseUP(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
 var
@@ -255,6 +280,13 @@ Button3.Enabled:=true;
 N3DPlot1.Enabled:=true;
 N3DPlot2.Enabled:=true;
 N4.Enabled:=true;
+
+for i:= 1 to 17 do begin
+      for j:=1 to 17 do begin
+      form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
+      end;
+    end;
+
 //Открытие окна диалога ФАЙЛ.ОТКРЫТЬ для выбора папки
 //и файла, текст из которого следует
 // Разрешаем сохранять файлы типа .txt и .doc
@@ -430,6 +462,8 @@ for i:= 1 to 17 do begin
       inc(k)
       end;
     end;
+    StringGrid2.Hint := '0 0';
+    StringGrid2.ShowHint := True;
 end;
 (******************************************************************************)
 
@@ -459,11 +493,17 @@ Form3.Button1Click(Sender);
 end;
 (******************************************************************************)
 
-procedure TForm1.N5Click(Sender: TObject);         //Открытие лог файла
+procedure TForm1.N5Click(Sender: TObject);     //Открытие лог файла
+var i,j:integer;
 begin
 TabClear(0,0,1);
 if Form1.OpenDialog1.Execute then begin//если выбран файл
   fname:=OpenDialog1.FileName;
+  for i:= 1 to 17 do begin
+      for j:=1 to 17 do begin
+      form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
+      end;
+    end;
  MyThread:=TMyThread.Create(False);
  MyThread.Priority:=tpNormal;
 N7.Enabled:=true; end
@@ -548,16 +588,21 @@ Except
 //Нахождение среднего арифметического и перевод в сотые
 for i := 0 to 15 do
  begin
-   if n1[i]>0 then  sr1[i]:=(s1[i]/n1[i]);
+   if n1[i]>0 then begin
+   sr1[i]:=(s1[i]/n1[i]);
+   end;
  end;
 /// Выбираем поле куда вставлять значения
 for i:= 2 to form1.stringGrid2.Rowcount do begin
 if not (sr1[i-2]=0) then begin
 //array[столбец,строка]
+
  zn:=strtofloat(form1.stringGrid2.Cells[k,i-1])+sr1[i-2];
  znac:=floattostrf(zn,fffixed,3,2);
     if not (form1.stringGrid2.Cells[k,i-1]=znac) then
     begin
+      nvhod[k,i-2]:=n1[i-2];
+      form1.StringGrid2.Rows[i-1].Objects[k] := TObject(2);
       form1.stringGrid2.Cells[k,i-1]:=znac;
     end;
 end;

@@ -44,6 +44,7 @@ object Form1: TForm1
     ScrollBars = ssNone
     TabOrder = 0
     OnDrawCell = StringGrid2DrawCell
+    OnMouseMove = StringGrid2MouseMove
     OnMouseUp = StringGrid2MouseUp
     RowHeights = (
       24
