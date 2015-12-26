@@ -38,9 +38,6 @@ type
     procedure N5Click(Sender: TObject);
     procedure StringGrid2DrawCell(Sender: TObject; ACol, ARow: Integer;
       Rect: TRect; State: TGridDrawState);
-
-    procedure StringGrid2MouseUp(Sender: TObject; Button: TMouseButton;
-      Shift: TShiftState; X, Y: Integer);
     procedure N3DPlot1Click(Sender: TObject);
     procedure Help1Click(Sender: TObject);
     procedure Edit(Sender: TObject);
@@ -188,33 +185,12 @@ try
     begin
       C:=ACol; R:=ARow;
      Application.CancelHint;
-      //StringGrid2.Hint:='('+IntToStr(C)+', '+IntToStr(R)+')';
       StringGrid2.Hint:=inttostr(nvhod[c,r-1]);
     end;
 except
 end;
 end;
-(******************************************************************************)
-procedure TForm1.StringGrid2MouseUP(Sender: TObject;
-  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
-var
-  Col, Row : Integer;
-begin
-//Определяем координаты ячейки, на которой произошёл щелчок мыши.
-  StringGrid2.MouseToCell(X, Y, Col, Row);
-  with StringGrid2 do
-  begin
-  //Если произошёл щелчок левой кнопкой мыши - устанавливаем флаг.
-  if Button = mbLeft then begin
-    //Под видом указателя на объект, который связан с ячейкой, записываем
-    //значение флага. Значение флага, равное 1, означает, что цвет ячейки изменён.
-    Rows[Row].Objects[Col] := TObject(1); //Или: := Pointer(1);
-  //Если произошёл щелчок правой кнопкой мыши - сбрасываем флаг.
-  end else if Button = mbRight then begin
-    Rows[Row].Objects[Col] := TObject(0); //Или: := Pointer(0);
-  end;
-  end;
-end;
+
 (******************************************************************************)
 
 
@@ -286,7 +262,11 @@ for i:= 1 to 17 do begin
       form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
       end;
     end;
-
+     for i:= 1 to 16 do begin
+      for j:=1 to 16 do begin
+       nvhod[i-1,j-1]:=0;
+      end;
+    end;
 //Открытие окна диалога ФАЙЛ.ОТКРЫТЬ для выбора папки
 //и файла, текст из которого следует
 // Разрешаем сохранять файлы типа .txt и .doc
@@ -502,6 +482,11 @@ if Form1.OpenDialog1.Execute then begin//если выбран файл
   for i:= 1 to 17 do begin
       for j:=1 to 17 do begin
       form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
+      end;
+    end;
+     for i:= 1 to 16 do begin
+      for j:=1 to 16 do begin
+       nvhod[i-1,j-1]:=0;
       end;
     end;
  MyThread:=TMyThread.Create(False);
