@@ -4,7 +4,7 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'VE LogTuner'
-  ClientHeight = 502
+  ClientHeight = 512
   ClientWidth = 888
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,15 +19,15 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 40
+    Left = 45
     Top = 453
     Width = 105
     Height = 13
     Caption = #1053#1072#1095#1072#1083#1100#1085#1086#1077' '#1079#1085#1072#1095#1077#1085#1080#1077
   end
   object Label2: TLabel
-    Left = 328
-    Top = 455
+    Left = 302
+    Top = 453
     Width = 243
     Height = 13
     Caption = #1054#1090#1082#1088#1099#1090#1100' '#1080' '#1089#1086#1093#1088#1072#1085#1080#1090#1100' '#1087#1088#1086#1084#1077#1078#1091#1090#1086#1095#1085#1099#1077' '#1090#1072#1073#1083#1080#1094#1099
@@ -44,6 +44,7 @@ object Form1: TForm1
     ScrollBars = ssNone
     TabOrder = 0
     OnDrawCell = StringGrid2DrawCell
+    OnMouseDown = StringGrid2MouseDown
     OnMouseMove = StringGrid2MouseMove
     RowHeights = (
       24
@@ -66,35 +67,35 @@ object Form1: TForm1
   end
   object Edit1: TEdit
     Left = 24
-    Top = 472
-    Width = 121
+    Top = 477
+    Width = 65
     Height = 21
     TabOrder = 1
     Text = '0.65'
   end
   object Button1: TButton
-    Left = 160
-    Top = 468
+    Left = 104
+    Top = 472
     Width = 75
-    Height = 25
+    Height = 33
     Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100
     TabOrder = 2
     OnClick = Button1Click
   end
   object Button2: TButton
-    Left = 360
+    Left = 337
     Top = 470
     Width = 75
-    Height = 25
+    Height = 37
     Caption = #1054#1090#1082#1088#1099#1090#1100
     TabOrder = 3
     OnClick = Button2Click
   end
   object Button3: TButton
-    Left = 448
-    Top = 471
+    Left = 431
+    Top = 470
     Width = 75
-    Height = 25
+    Height = 37
     Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
     Enabled = False
     TabOrder = 4
@@ -102,7 +103,7 @@ object Form1: TForm1
   end
   object N10: TButton
     Left = 656
-    Top = 455
+    Top = 470
     Width = 105
     Height = 37
     Caption = #1056#1072#1089#1089#1095#1080#1090#1072#1090#1100' VE'
@@ -118,7 +119,7 @@ object Form1: TForm1
   end
   object N3DPlot2: TButton
     Left = 767
-    Top = 455
+    Top = 470
     Width = 105
     Height = 37
     Caption = #1043#1088#1072#1092#1080#1082' VE'
@@ -131,6 +132,16 @@ object Form1: TForm1
     ParentFont = False
     TabOrder = 6
     OnClick = N3DPlot1Click
+  end
+  object CheckBox1: TCheckBox
+    Left = 656
+    Top = 447
+    Width = 129
+    Height = 17
+    Caption = #1055#1086#1089#1083#1077#1076#1085#1080#1077' '#1080#1079#1084#1077#1085#1077#1085#1080#1103
+    Enabled = False
+    TabOrder = 7
+    OnClick = CheckBox1Click
   end
   object MainMenu1: TMainMenu
     Left = 928
@@ -161,6 +172,10 @@ object Form1: TForm1
         Caption = #1056#1072#1089#1089#1095#1080#1090#1072#1090#1100' VE'
         Enabled = False
         OnClick = N10Click
+      end
+      object N6: TMenuItem
+        Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1080#1079#1084#1077#1085#1077#1085#1080#1103
+        OnClick = N6Click
       end
     end
     object N3DPlot1: TMenuItem

@@ -30,6 +30,8 @@ type
     N3DPlot1: TMenuItem;
     N3DPlot2: TButton;
     Help1: TMenuItem;
+    CheckBox1: TCheckBox;
+    N6: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure N10Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -44,6 +46,10 @@ type
     procedure N8Click(Sender: TObject);
     procedure StringGrid2MouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
+    procedure StringGrid2MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure CheckBox1Click(Sender: TObject);
+    procedure N6Click(Sender: TObject);
 
 
   private
@@ -80,7 +86,7 @@ var
   fname,frname:string;
     r: integer;  //hint
     c: integer;
-    nvhod: array[0..15,0..15] of integer;
+    nvhod: array[0..16,0..16] of integer;
 implementation
 
 uses Unit3;
@@ -101,6 +107,8 @@ Var
   hexname:string;   //Имя прошивки
   loglen:integer;
   data: array of array of real;
+  databuf: array[0..16,0..16] of string;    //Буфер для показа изменений
+  stsum:array [0..15,0..15] of real; //Суммы изменений после пересчета
 
 {$R *.dfm}
 
@@ -154,18 +162,48 @@ begin
 //Читаем значение флага, которое записано под видом указателя на объект.
   Flag := Integer(StringGrid2.Rows[ARow].Objects[ACol]);
   //Если флаг не равен
-  if (Flag <> 1) and (Flag <> 2)then Exit;
+  if (Flag <> 1) and (Flag <> 2) and (Flag <> 4)then Exit;
 with StringGrid2 do
   begin
   if (ACol>0) and(ARow>0) then begin
    try
-    if not (edit1.Text = Cells[ACol, ARow])then
+if not (edit1.Text = Cells[ACol, ARow])then begin
 Canvas.Brush.Color:=clYellow;
-if (Flag = 2) then begin Canvas.Brush.Color:=claqua; end;
+end;
+if (Flag = 2) then begin Canvas.Brush.Color:=cllime; end;
+if (Flag = 4) then begin Canvas.Brush.Color:=claqua; end;
    except
    end;
    Canvas.FillRect(Rect); //Текст тоже будет закрашен, его нужно перерисовать:
    Canvas.TextOut(Rect.Left+2, Rect.Top+2, Cells[ACol, ARow]);
+  end;
+  end;
+end;
+
+(******************************************************************************)
+
+procedure TForm1.StringGrid2MouseDown(Sender: TObject; Button: TMouseButton;   //Фиксация точек по клику
+  Shift: TShiftState; X, Y: Integer);
+var
+  Col, Row : Integer;
+  Flag : Integer;
+begin
+//Определяем координаты ячейки, на которой произошёл щелчок мыши.
+  StringGrid2.MouseToCell(X, Y, Col, Row);
+  Flag := Integer(StringGrid2.Rows[Row].Objects[Col]);
+  with StringGrid2 do
+  begin
+  //Если произошёл щелчок левой кнопкой мыши - устанавливаем флаг.
+  if (Flag <> 2) and (Flag <> 4) and (Flag <> 1)then Exit else
+  if (Button = mbLeft)and (ssShift in Shift)then begin
+    //Под видом указателя на объект, который связан с ячейкой, записываем
+    //значение флага. Значение флага, равное 1, означает, что цвет ячейки изменён.
+    Rows[Row].Objects[Col] := TObject(4);
+  //Если произошёл щелчок правой кнопкой мыши - сбрасываем флаг.
+  end
+  else
+  if (Button = mbRight)and (ssShift in Shift)then begin
+    Rows[Row].Objects[Col] := TObject(1);
   end;
   end;
 end;
@@ -305,6 +343,7 @@ for j := 1 to stringgrid2.Rowcount-1 do begin
 res:=buf[k]/128;
 HexVE :=FormatFloat('0.##',res);// Format('%0x',[buf[k]]);
 stringgrid2.Cells[i,j]:=HexVE;
+stringgrid2.Rows[i].Objects[j] := TObject(1);
 inc(k);
 end;
 except
@@ -385,6 +424,36 @@ end;
 end;
 
 
+procedure TForm1.CheckBox1Click(Sender: TObject);
+var
+  i,j:integer;
+  zn:real;
+  znac:string;
+begin
+if (CheckBox1.Checked = True) then
+  begin
+  for i:= 2 to form1.stringGrid2.Rowcount do begin
+   for j := 2 to form1.stringGrid2.colcount do
+      if (n10.Enabled=false) then begin
+ zn:=strtofloat(form1.stringGrid2.Cells[j-1,i-1])+stsum[j-1,i-2];
+ znac:=floattostrf(zn,fffixed,3,2);
+  databuf[j-2,i-2]:=znac;
+  form1.stringGrid2.Cells[j-1,i-1]:=floattostrf(stsum[j-1,i-2],fffixed,3,2);
+end;
+end;
+  end
+                              else
+  begin
+   for i:= 2 to form1.stringGrid2.Rowcount do begin
+   for j := 2 to form1.stringGrid2.colcount do
+      if (n10.Enabled=false) then begin
+  form1.stringGrid2.Cells[j-1,i-1]:=databuf[j-2,i-2];
+end;
+end;
+  end;
+
+end;
+
 (******************************************************************************)
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -438,7 +507,7 @@ for i:= 1 to 17 do begin
     k:=1;
       for j:=1 to 17 do begin
       stringGrid2.Cells[k,i]:=edit1.Text;
-      form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
+      form1.StringGrid2.Rows[i].Objects[j] := TObject(0);
       inc(k)
       end;
     end;
@@ -479,11 +548,6 @@ begin
 TabClear(0,0,1);
 if Form1.OpenDialog1.Execute then begin//если выбран файл
   fname:=OpenDialog1.FileName;
-  for i:= 1 to 17 do begin
-      for j:=1 to 17 do begin
-      form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
-      end;
-    end;
      for i:= 1 to 16 do begin
       for j:=1 to 16 do begin
        nvhod[i-1,j-1]:=0;
@@ -492,6 +556,15 @@ if Form1.OpenDialog1.Execute then begin//если выбран файл
  MyThread:=TMyThread.Create(False);
  MyThread.Priority:=tpNormal;
 N7.Enabled:=true; end
+end;
+
+procedure TForm1.N6Click(Sender: TObject);
+begin
+with checkbox1 do
+if Checked=false then
+Checked:=true
+else
+Checked:=false;
 end;
 
 procedure TMyThread.Execute;
@@ -532,9 +605,9 @@ Close;
 end;
 (******************************************************************************)
 procedure smlst(arh:Pointer;n:integer;k:integer);    //Пересчет значений в STRGRD2
-var i,cs:integer; n1:array [0..15] of integer;
+var i,cs,Flag:integer; n1:array [0..15] of integer;
  s1:array [0..15] of real;
-  sr1:array [0..15] of real;
+ sr1:array [0..15] of real;
   arr: array of array of real;
   znac:string;
   zn:real;
@@ -579,14 +652,15 @@ for i := 0 to 15 do
  end;
 /// Выбираем поле куда вставлять значения
 for i:= 2 to form1.stringGrid2.Rowcount do begin
-if not (sr1[i-2]=0) then begin
+Flag := Integer(form1.StringGrid2.Rows[i-1].Objects[k]);
+if not (sr1[i-2]=0) and (Flag<>4) then begin
 //array[столбец,строка]
-
  zn:=strtofloat(form1.stringGrid2.Cells[k,i-1])+sr1[i-2];
  znac:=floattostrf(zn,fffixed,3,2);
     if not (form1.stringGrid2.Cells[k,i-1]=znac) then
     begin
-      nvhod[k,i-2]:=n1[i-2];
+        nvhod[k,i-2]:=n1[i-2];
+        stsum[k,i-2]:=sr1[i-2];
       form1.StringGrid2.Rows[i-1].Objects[k] := TObject(2);
       form1.stringGrid2.Cells[k,i-1]:=znac;
     end;
@@ -649,6 +723,7 @@ if(length(data)>0 )then
    F.Destroy;
      form1.Caption:=form1.Caption+ ' - Изменено';
      Button3.Enabled:=true;
+     checkbox1.Enabled:=true;
      N3DPlot1.Enabled:=true;
      N3DPlot2.Enabled:=true;
      N10.Enabled:=false;
