@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart,math,WindowThread;
+  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart,math,WindowThread,IniFiles,unit2;
 
 type
   TForm1 = class(TForm)
@@ -32,6 +32,7 @@ type
     Help1: TMenuItem;
     CheckBox1: TCheckBox;
     N6: TMenuItem;
+    N9: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure N10Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -50,6 +51,7 @@ type
       Shift: TShiftState; X, Y: Integer);
     procedure CheckBox1Click(Sender: TObject);
     procedure N6Click(Sender: TObject);
+    procedure N9Click(Sender: TObject);
 
 
   private
@@ -294,7 +296,7 @@ Button3.Enabled:=true;
 N3DPlot1.Enabled:=true;
 N3DPlot2.Enabled:=true;
 N4.Enabled:=true;
-
+openDialog2.InitialDir := form2.Edit2.Text;
 for i:= 1 to 17 do begin
       for j:=1 to 17 do begin
       form1.StringGrid2.Rows[i].Objects[j] := TObject(1);
@@ -315,7 +317,6 @@ for i:= 1 to 17 do begin
 
   // Выбор текстовых файлов как стартовый тип фильтра
  OpenDialog2.FilterIndex := 1;
- openDialog2.InitialDir := GetCurrentDir+'\VE';
 //поместить в Memo1 - рабочую область редактора.
 if Form1.OpenDialog2.Execute then begin //если выбран файл
   S:=OpenDialog2.FileName;//то S присвоить спецификацию файла,
@@ -380,6 +381,7 @@ var
   ln : integer;
 
 begin
+saveDialog1.InitialDir := form2.Edit2.Text;
 //Обработчик щелчка на пункте меню ФАЙЛ.СОХРАНИТЬ КАК...
 //Открытие окна диалога для выбора папки и
 //задания имени и типа файла, в котором следует
@@ -459,6 +461,12 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 var i,j,k:integer;
 begin
+with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
+  begin
+    openDialog2.InitialDir := ReadString('DIR', 'EEPROM', '');
+    openDialog1.InitialDir := ReadString('DIR', 'LOG', '');
+    Free;
+  end;
 // Разрешаем сохранять файлы типа .txt и .doc
 OpenDialog1.Filter := 'Secu3 Logfile|*.csv|';
 
@@ -545,6 +553,7 @@ end;
 procedure TForm1.N5Click(Sender: TObject);     //Открытие лог файла
 var i,j:integer;
 begin
+openDialog1.InitialDir := form2.Edit1.Text;
 TabClear(0,0,1);
 if Form1.OpenDialog1.Execute then begin//если выбран файл
   fname:=OpenDialog1.FileName;
@@ -603,6 +612,11 @@ procedure TForm1.N8Click(Sender: TObject);           //Завершение работы
 begin
 Close;
 end;
+procedure TForm1.N9Click(Sender: TObject);
+begin
+form2.show;
+end;
+
 (******************************************************************************)
 procedure smlst(arh:Pointer;n:integer;k:integer);    //Пересчет значений в STRGRD2
 var i,cs,Flag:integer; n1:array [0..15] of integer;
