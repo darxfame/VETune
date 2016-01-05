@@ -22,6 +22,8 @@ type
     NLabMag: TNumLab;
     ScrBarMagnif: TScrollBar;
     Plot3D1: TPlot3D;
+    Series2: TLineSeries;
+    datab: TButton;
     procedure rash1Change(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -38,6 +40,7 @@ type
       var Handled: Boolean; CellX, CellY: Integer; quad: TQuad;
       var color: TColor);
       procedure ScrBarMagnifChange(Sender: TObject);
+    procedure databClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +52,7 @@ var
   mouse:string;
   mint:integer;
   mins, maxs : array[1..3] of double;
+  databuf: array[0..16,0..16] of string;    //Буфер для показа изменений
  const
   HoleXLow = 16;
   HoleXHigh = 16;
@@ -59,6 +63,16 @@ implementation
 
 {$R *.dfm}
 (******************************************************************************)
+procedure TForm3.databClick(Sender: TObject);
+var i,j:integer; znac:string; zn:real;
+begin
+for i:= 2 to form1.stringGrid2.Rowcount do
+   for j := 2 to form1.stringGrid2.colcount do begin
+ zn:=strtofloat(form1.stringGrid2.Cells[j-1,i-1]);
+ znac:=floattostrf(zn,fffixed,3,2);
+  databuf[j-2,i-2]:=znac;
+end;
+end;
 
 procedure TForm3.Button1Click(Sender: TObject);
 var i,j,e,l,rcout:integer; x,y,z:real;
@@ -120,14 +134,11 @@ rash1.Max:=16;
  with form3.Chart1 do
   begin
   Series1.Clear;
-  legend.Visible:=True;
+ // legend.Visible:=True;
 ///создаём серию
-// Series1:=TFastLineSeries.Create(Chart1); //тип FastLine
- //Series1.ParentChart := Chart1;             //назначение родительского графика
  (Series1 as TLineSeries).LinePen.Width:=2;//толщина
  Series1.XValues.Order:= LoNone;               //чтобы соединялись точки так как их вводят!!!
  Series1.Marks.Visible:= True;
-// Series1.Marks.Style:=smsPointIndex;
  Series1.Marks.Style:=smsValue;
  x:=0;
  y:=0;
@@ -136,11 +147,34 @@ for j := 1 to form1.StringGrid2.RowCount-1 do
   FormatSettings.DecimalSeparator := '.';
   y:=strtofloat(form1.StringGrid2.Cells[rash1.Position,j]);
   x:=strtofloat(form1.StringGrid2.Cells[0,j]);
-   Series1.AddXY(x,y, form1.StringGrid2.Cells[0,j]+'('+inttostr(j-1)+')',clRed);
+   Series1.AddXY(x,y, form1.StringGrid2.Cells[0,j],clRed);
     end;
 Series1.Title := ''; //
  Series1.Active := True;
   end;
+
+  with form3.Chart1 do
+  begin
+  Series2.Clear;
+  //legend.Visible:=True;
+///создаём серию
+ (Series2 as TLineSeries).LinePen.Width:=2;//толщина
+ Series2.XValues.Order:= LoNone;               //чтобы соединялись точки так как их вводят!!!
+ Series2.Marks.Visible:= True;
+ Series2.Marks.Style:=smsValue;
+ x:=0;
+ y:=0;
+for j := 1 to form1.StringGrid2.RowCount-1 do
+  begin
+  FormatSettings.DecimalSeparator := '.';
+  y:=strtofloat(databuf[rash1.Position-1,j-1]);
+  x:=strtofloat(form1.StringGrid2.Cells[0,j]);
+   Series2.AddXY(x,y, '',clAqua);
+    end;
+Series2.Title := ''; //
+ Series2.Active := True;
+  end;
+
        end
       else
      begin
@@ -191,7 +225,7 @@ rash1.Max:=rcout-1;
  with form3.Chart1 do
   begin
   Series1.Clear;
-  legend.Visible:=false;
+  //legend.Visible:=false;
 ///создаём серию
 // Series1:=TFastLineSeries.Create(Chart1); //тип FastLine
  //Series1.ParentChart := Chart1;             //назначение родительского графика
@@ -210,6 +244,28 @@ for j := 1 to form1.StringGrid2.ColCount-1 do
     end;
 Series1.Title := ''; //
  Series1.Active := True;
+  end;
+
+    with form3.Chart1 do
+  begin
+  Series2.Clear;
+  //legend.Visible:=True;
+///создаём серию
+ (Series2 as TLineSeries).LinePen.Width:=2;//толщина
+ Series2.XValues.Order:= LoNone;               //чтобы соединялись точки так как их вводят!!!
+ Series2.Marks.Visible:= True;
+ Series2.Marks.Style:=smsValue;
+ x:=0;
+ y:=0;
+for j := 1 to form1.StringGrid2.RowCount-1 do
+  begin
+  FormatSettings.DecimalSeparator := '.';
+  y:=strtofloat(databuf[j-1,rash1.Position-1]);
+  x:=strtofloat(form1.StringGrid2.Cells[j,0]);
+   Series2.AddXY(x,y, '',clAqua);
+    end;
+Series2.Title := ''; //
+ Series2.Active := True;
   end;
      end;
      end;
@@ -278,6 +334,7 @@ if checkbox2.Checked=true then
         rash1.Visible:=true;
        end;
 end;
+
 (******************************************************************************)
 
 procedure TForm3.FormCreate(Sender: TObject);
@@ -287,6 +344,9 @@ begin
 Label1.Caption:='Расход';
 rash1.Min:=1;
 rash1.Max:=16;
+for i:= 2 to form1.stringGrid2.Rowcount do
+   for j := 2 to form1.stringGrid2.colcount do
+  databuf[j-2,i-2]:=form1.Edit1.Text;
 Button1Click(Sender);
 end;
 (******************************************************************************)
