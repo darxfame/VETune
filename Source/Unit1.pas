@@ -364,10 +364,10 @@ tt.Destroy;
 (**********Очистка переменных*********)
 f:=0;
 Form3.Button1Click(Sender);
+Form3.databclick(Sender);
 (**********Завершение*********)
 
     end;
-
 end;
 (******************************************************************************)
 
@@ -738,6 +738,7 @@ if(length(data)>0 )then
      form1.Caption:=form1.Caption+ ' - Изменено';
      Button3.Enabled:=true;
      checkbox1.Enabled:=true;
+     N6.Enabled:=true;
      N3DPlot1.Enabled:=true;
      N3DPlot2.Enabled:=true;
      N10.Enabled:=false;

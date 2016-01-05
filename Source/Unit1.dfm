@@ -175,6 +175,7 @@ object Form1: TForm1
       end
       object N6: TMenuItem
         Caption = #1055#1086#1082#1072#1079#1072#1090#1100' '#1080#1079#1084#1077#1085#1077#1085#1080#1103
+        Enabled = False
         OnClick = N6Click
       end
     end

@@ -87,7 +87,7 @@
 						<VersionInfo Name="AutoIncBuild">True</VersionInfo>
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">4</VersionInfo>
-						<VersionInfo Name="Release">4</VersionInfo>
+						<VersionInfo Name="Release">5</VersionInfo>
 						<VersionInfo Name="Build">2</VersionInfo>
 						<VersionInfo Name="Debug">True</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
@@ -100,7 +100,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Secu3</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">VE LogTuner</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.4.4.2</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.4.5.2</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright">by Кочегизов Артем</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>

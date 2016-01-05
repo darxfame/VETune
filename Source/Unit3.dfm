@@ -79,6 +79,7 @@ object Form3: TForm3
     Legend.ColorWidth = 15
     Legend.Symbol.Width = 15
     Legend.TopPos = 4
+    Legend.Visible = False
     Title.Text.Strings = (
       'TChart')
     BottomAxis.LogarithmicBase = 2.718281828459050000
@@ -93,6 +94,35 @@ object Form3: TForm3
       15
       17)
     ColorPaletteIndex = 11
+    object Series2: TLineSeries
+      Marks.Arrow.Visible = True
+      Marks.Callout.Brush.Color = clBlack
+      Marks.Callout.Arrow.Visible = True
+      Marks.Clip = True
+      Marks.Margins.Left = 10
+      Marks.Margins.Top = 0
+      Marks.Margins.Right = 16
+      Marks.Shadow.Color = 8487297
+      Marks.Shadow.Visible = False
+      Marks.Style = smsPointIndex
+      Marks.Symbol.Emboss.Smooth = False
+      Marks.Symbol.Shadow.HorizSize = 0
+      Marks.Symbol.Shadow.Smooth = False
+      Marks.Symbol.Shadow.VertSize = 0
+      Marks.Symbol.Shadow.Visible = False
+      Marks.Visible = True
+      LinePen.Color = 13770496
+      Pointer.Brush.Gradient.EndColor = 13770496
+      Pointer.Gradient.EndColor = 13770496
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      Pointer.Visible = True
+      TreatNulls = tnIgnore
+      XValues.Name = 'X'
+      XValues.Order = loAscending
+      YValues.Name = 'Y'
+      YValues.Order = loNone
+    end
     object Series1: TLineSeries
       Marks.Arrow.Visible = True
       Marks.Callout.Brush.Color = clBlack
@@ -251,5 +281,15 @@ object Form3: TForm3
     VisibleYCoords = True
     VisibleZCoords = True
     OnBeforeRenderPolygon = Plot3D1BeforeRenderPolygon
+  end
+  object datab: TButton
+    Left = 857
+    Top = 448
+    Width = 75
+    Height = 25
+    Caption = 'Plot'
+    TabOrder = 9
+    Visible = False
+    OnClick = databClick
   end
 end
