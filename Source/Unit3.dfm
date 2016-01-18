@@ -6,6 +6,7 @@ object Form3: TForm3
   ClientHeight = 507
   ClientWidth = 994
   Color = clBtnFace
+  Constraints.MinHeight = 507
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -82,17 +83,27 @@ object Form3: TForm3
     Legend.Visible = False
     Title.Text.Strings = (
       'TChart')
+    BottomAxis.LabelsSeparation = 0
+    BottomAxis.LabelStyle = talText
     BottomAxis.LogarithmicBase = 2.718281828459050000
+    LeftAxis.Automatic = False
+    LeftAxis.AutomaticMaximum = False
+    LeftAxis.AutomaticMinimum = False
+    LeftAxis.Maximum = 134.406250000000000000
+    LeftAxis.Minimum = 0.675546875000019800
     View3D = False
+    Zoom.Allow = False
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 0
     OnMouseDown = Chart1MouseDown
     OnMouseMove = Chart1MouseMove
     OnMouseUp = Chart1MouseUp
     PrintMargins = (
       15
-      17
+      24
       15
-      17)
+      24)
     ColorPaletteIndex = 11
     object Series2: TLineSeries
       Marks.Arrow.Visible = True
@@ -128,10 +139,11 @@ object Form3: TForm3
       Marks.Callout.Brush.Color = clBlack
       Marks.Callout.Arrow.Visible = True
       Marks.Clip = True
+      Marks.Emboss.Color = 8487297
       Marks.Margins.Left = 10
       Marks.Margins.Top = 0
       Marks.Margins.Right = 16
-      Marks.Shadow.Color = 8487297
+      Marks.Shadow.Color = 8553090
       Marks.Shadow.Visible = False
       Marks.Style = smsPointIndex
       Marks.Symbol.Emboss.Smooth = False
@@ -140,6 +152,7 @@ object Form3: TForm3
       Marks.Symbol.Shadow.VertSize = 0
       Marks.Symbol.Shadow.Visible = False
       Marks.Visible = True
+      SeriesColor = 13770496
       LinePen.Color = 13770496
       Pointer.Brush.Gradient.EndColor = 13770496
       Pointer.Gradient.EndColor = 13770496
@@ -150,7 +163,7 @@ object Form3: TForm3
       XValues.Name = 'X'
       XValues.Order = loAscending
       YValues.Name = 'Y'
-      YValues.Order = loNone
+      YValues.Order = loAscending
     end
   end
   object rash1: TScrollBar
@@ -217,15 +230,100 @@ object Form3: TForm3
     Top = 159
     Width = 129
     Height = 20
+    Ctl3D = False
     Max = 200
     PageSize = 0
+    ParentCtl3D = False
     Position = 100
     TabOrder = 7
     OnChange = ScrBarMagnifChange
   end
+  object datab: TButton
+    Left = 857
+    Top = 448
+    Width = 75
+    Height = 25
+    Caption = 'Plot'
+    TabOrder = 8
+    Visible = False
+    OnClick = databClick
+  end
+  object Panel1: TPanel
+    Left = 857
+    Top = 185
+    Width = 133
+    Height = 56
+    TabOrder = 9
+    object Label3: TLabel
+      Left = 32
+      Top = 8
+      Width = 68
+      Height = 13
+      Caption = #1057#1075#1083#1072#1078#1080#1074#1072#1085#1080#1077
+    end
+    object Button5: TButton
+      Left = 86
+      Top = 25
+      Width = 25
+      Height = 25
+      Caption = 'x7'
+      TabOrder = 0
+      OnClick = Button5Click
+    end
+    object Button4: TButton
+      Left = 55
+      Top = 25
+      Width = 25
+      Height = 25
+      Caption = 'x5'
+      TabOrder = 1
+      OnClick = Button4Click
+    end
+    object Button3: TButton
+      Left = 24
+      Top = 25
+      Width = 25
+      Height = 25
+      Caption = 'x3'
+      TabOrder = 2
+      OnClick = Button3Click
+    end
+  end
+  object Panel2: TPanel
+    Left = 857
+    Top = 247
+    Width = 133
+    Height = 82
+    TabOrder = 10
+    object Label4: TLabel
+      Left = 27
+      Top = 6
+      Width = 86
+      Height = 13
+      Caption = #1057#1082#1088#1099#1090#1100' '#1043#1088#1072#1092#1080#1082#1080
+    end
+    object CheckBox3: TCheckBox
+      Left = 8
+      Top = 25
+      Width = 113
+      Height = 17
+      Caption = #1048#1089#1093#1086#1076#1085#1099#1081' EEPROM'
+      TabOrder = 0
+      OnClick = CheckBox3Click
+    end
+    object CheckBox4: TCheckBox
+      Left = 8
+      Top = 48
+      Width = 97
+      Height = 17
+      Caption = #1048#1079#1084#1077#1085#1077#1085#1085#1099#1081
+      TabOrder = 1
+      OnClick = CheckBox4Click
+    end
+  end
   object Plot3D1: TPlot3D
-    Left = 41
-    Top = 15
+    Left = 38
+    Top = 19
     Width = 793
     Height = 410
     AutoCenter = True
@@ -281,15 +379,5 @@ object Form3: TForm3
     VisibleYCoords = True
     VisibleZCoords = True
     OnBeforeRenderPolygon = Plot3D1BeforeRenderPolygon
-  end
-  object datab: TButton
-    Left = 857
-    Top = 448
-    Width = 75
-    Height = 25
-    Caption = 'Plot'
-    TabOrder = 9
-    Visible = False
-    OnClick = databClick
   end
 end

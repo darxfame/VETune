@@ -4,7 +4,8 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart,math,WindowThread,IniFiles,unit2;
+  Dialogs, Menus, StdCtrls,Masks, Grids, ExtCtrls,TeeProcs, TeEngine,Chart,math,IniFiles,unit2,
+  Buttons;
 
 type
   TForm1 = class(TForm)
@@ -15,24 +16,36 @@ type
     N5: TMenuItem;
     N8: TMenuItem;
     StringGrid2: TStringGrid;
-    Edit1: TEdit;
-    Label1: TLabel;
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
     OpenDialog2: TOpenDialog;
-    N10: TButton;
-    Label2: TLabel;
     N2: TMenuItem;
     N3: TMenuItem;
     N4: TMenuItem;
     N7: TMenuItem;
     N3DPlot1: TMenuItem;
-    N3DPlot2: TButton;
     Help1: TMenuItem;
-    CheckBox1: TCheckBox;
     N6: TMenuItem;
     N9: TMenuItem;
+    Log1: TMenuItem;
+    EEPROM1: TMenuItem;
+    N11: TMenuItem;
+    N12: TMenuItem;
+    VEtxt1: TMenuItem;
+    OpenDialog3: TOpenDialog;
+    SaveDialog2: TSaveDialog;
+    Panel1: TPanel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Button1: TButton;
+    Panel2: TPanel;
+    Button2: TButton;
+    Button3: TButton;
+    Label2: TLabel;
+    Panel3: TPanel;
+    N10: TButton;
+    N3DPlot2: TButton;
+    CheckBox1: TCheckBox;
+    BitBtn1: TBitBtn;
+    Button4: TButton;
     procedure FormCreate(Sender: TObject);
     procedure N10Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -43,7 +56,6 @@ type
       Rect: TRect; State: TGridDrawState);
     procedure N3DPlot1Click(Sender: TObject);
     procedure Help1Click(Sender: TObject);
-    procedure Edit(Sender: TObject);
     procedure N8Click(Sender: TObject);
     procedure StringGrid2MouseMove(Sender: TObject; Shift: TShiftState; X,
       Y: Integer);
@@ -52,6 +64,13 @@ type
     procedure CheckBox1Click(Sender: TObject);
     procedure N6Click(Sender: TObject);
     procedure N9Click(Sender: TObject);
+    procedure editClick(Sender: TObject);
+    procedure N12Click(Sender: TObject);
+    procedure VEtxt1Click(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure StringGrid2SelectCell(Sender: TObject; ACol, ARow: Integer;
+      var CanSelect: Boolean);
 
 
   private
@@ -91,10 +110,9 @@ var
     nvhod: array[0..16,0..16] of integer;
 implementation
 
-uses Unit3;
+uses Unit3, Unit4;
 Const
 Ix=50;  Iy=50;  //величины отступов от краев поля вывода
-//nt=100; //число интервалов на оси x
 ndx=10;
 ndy=50; //число разбиений по осям (x, y), сетка графика
 nc=7; mc=2; // константы для вывода оцифровки осей
@@ -164,7 +182,7 @@ begin
 //Читаем значение флага, которое записано под видом указателя на объект.
   Flag := Integer(StringGrid2.Rows[ARow].Objects[ACol]);
   //Если флаг не равен
-  if (Flag <> 1) and (Flag <> 2) and (Flag <> 4)then Exit;
+  if (Flag <> 1) and (Flag <> 2) and (Flag <> 4) and (Flag <> 5)then Exit;
 with StringGrid2 do
   begin
   if (ACol>0) and(ARow>0) then begin
@@ -174,6 +192,7 @@ Canvas.Brush.Color:=clYellow;
 end;
 if (Flag = 2) then begin Canvas.Brush.Color:=cllime; end;
 if (Flag = 4) then begin Canvas.Brush.Color:=claqua; end;
+if (Flag = 5) then begin Canvas.Brush.Color:=clred; end;
    except
    end;
    Canvas.FillRect(Rect); //Текст тоже будет закрашен, его нужно перерисовать:
@@ -226,23 +245,73 @@ try
       C:=ACol; R:=ARow;
      Application.CancelHint;
       StringGrid2.Hint:=inttostr(nvhod[c,r-1]);
+      StringGrid2.Selection := TGridRect(rect(C, R, c, r));
     end;
 except
+end;
+end;
+(******************************************************************************)
+procedure TForm1.StringGrid2SelectCell(Sender: TObject; ACol, ARow: Integer;
+  var CanSelect: Boolean);
+begin
+StringGrid2.Cells[ACol,ARow] := InputBox('Редактирование значения', 'Введите значение', StringGrid2.Cells[ACol,ARow]);
+end;
+
+(******************************************************************************)
+procedure TForm1.VEtxt1Click(Sender: TObject);
+var f1:textfile; i,k: Integer; fname:string;
+begin
+  saveDialog2.InitialDir := form2.Edit2.Text;
+
+// Разрешаем сохранять файлы типа .txt и .doc
+  saveDialog2.Filter := 'VE Text|*.txt|';
+
+  // Установка расширения по умолчанию
+  saveDialog2.DefaultExt := '*.txt';
+   SaveDialog2.FileName:=FormatDateTime('dd.mm.yyyy_hh.nn.ss', Now)+'.txt';
+  // Выбор текстовых файлов как стартовый тип фильтра
+  saveDialog2.FilterIndex := 1;
+//сохранить текст из Memo1-рабочей области редактора
+if Form1.SaveDialog2.Execute then begin
+  //Если файл выбран,
+  //то S присвоить спецификацию файла,
+
+  fname:=SaveDialog2.FileName;
+
+AssignFile(F1, fname);
+Rewrite(F1);
+with StringGrid2 do
+   begin
+     // Write number of Columns/Rows
+    Writeln(f1, ColCount);
+     Writeln(f1, RowCount);
+     // loop through cells
+    for i := 1 to ColCount - 1 do
+       for k := 1 to RowCount - 1 do
+         Writeln(F1, Cells[i, k]);
+   end;
+CloseFile(F1);
 end;
 end;
 
 (******************************************************************************)
 
 
+procedure TForm1.BitBtn1Click(Sender: TObject);
+begin
+form4.show;
+end;
+
 procedure TForm1.Button1Click(Sender: TObject);      //Базовое заполнение ячеек
 var i,j,k:integer; iTmp:integer;
+buttonSelected:integer;
 begin
 iTmp:=17;
-Button3.Enabled:=true;
 stringGrid2.ColCount := iTmp;
 stringGrid2.RowCount := iTmp;
-if not buf[0]=0 then  StringGrid2.Refresh else begin
    //Загружаем в листинг список значений из edit1
+buttonSelected:= MessageDlg('Заменить значения?',mtInformation, [mbYes,mbCancel], 0);
+   if buttonSelected = mrYes    then begin
 for i:= 1 to iTmp do begin
     k:=1;
       for j:=1 to iTmp do begin
@@ -250,15 +319,17 @@ for i:= 1 to iTmp do begin
         inc(k)
       end;
     end;
-end;
+   end;
+   with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
+   WriteString('TUNEUP', 'StartPoint', edit1.text);
 end;
 
 
 (******************************************************************************)
 
-procedure TForm1.Edit(Sender: TObject); //Занесение изменений таблицы в массив
+procedure TForm1.EditClick(Sender: TObject); //Занесение изменений таблицы в массив
  var i,j,k:integer;
-      res,hexve:real;
+      hexve:real;
 begin
 eeprom:='';
 k:=VE_SZ; try
@@ -272,7 +343,6 @@ except
 on E : Exception do
       ShowMessage(E.ClassName+'Edit ошибка с сообщением : '+E.Message);
 end;
-eeprom:='';
 end;
 
 
@@ -280,13 +350,8 @@ end;
 
 procedure TForm1.Button2Click(Sender: TObject);     //Открыть EEPROM
 var
-  i, j,iTmp: Integer;
-  f1:textfile;
-  st:string;
+  i, j: Integer;
   boot:File;
-  TT: TThreadWindow;
-  srcPtr : PChar;
-  buf16:byte;
   f:Integer;
  HexVE:string;
   k: Integer;
@@ -310,7 +375,7 @@ for i:= 1 to 17 do begin
 //Открытие окна диалога ФАЙЛ.ОТКРЫТЬ для выбора папки
 //и файла, текст из которого следует
 // Разрешаем сохранять файлы типа .txt и .doc
-  OpenDialog2.Filter := 'EEPROM file|*.bin';
+ OpenDialog2.Filter := 'EEPROM file|*.bin';
 
   // Установка расширения по умолчанию
  OpenDialog2.DefaultExt := '*.bin';
@@ -321,7 +386,6 @@ for i:= 1 to 17 do begin
 if Form1.OpenDialog2.Execute then begin //если выбран файл
   S:=OpenDialog2.FileName;//то S присвоить спецификацию файла,
   TabClear(1,1,2);   //очистка окна
-  TT := TThreadWindow.Show;
    for i := 0 to BUF_SZ-1 do
 buf[i]:=0;
 try
@@ -352,15 +416,15 @@ on E : Exception do
       ShowMessage(E.ClassName+'STRGRD ошибка с сообщением : '+E.Message);
 end;
 try
+hexname:='';
 for i := Namen_sz to namee_sz-1 do begin
 hexname:=hexname+AsToAc(buf[i]);
 end;
- Form1.Caption:=Form1.Caption+' '+hexname;
+Form1.EEPROM1.caption:='EEPROM: '+ExtractFileName(s)+' - '+hexname;
   except
 on E : Exception do
       ShowMessage(E.ClassName+'AstoAC ошибка с сообщением : '+E.Message);
 end;
-tt.Destroy;
 (**********Очистка переменных*********)
 f:=0;
 Form3.Button1Click(Sender);
@@ -373,18 +437,17 @@ end;
 
 procedure TForm1.Button3Click(Sender: TObject);     //Сохранить EEPROM
 var
-   i, k: Integer;
-  f1:textfile;
-   FileName : String;
+   i: Integer;
   Fs : TFileStream;
   SBin : AnsiString;
   ln : integer;
 
 begin
-Form1.edit(Sender);
+Form1.editClick(Sender);
 //Обработчик щелчка на пункте меню ФАЙЛ.СОХРАНИТЬ КАК...
 //Открытие окна диалога для выбора папки и
 //задания имени и типа файла, в котором следует
+  saveDialog1.InitialDir := form2.Edit3.Text;
 // Разрешаем сохранять файлы типа .txt и .doc
   saveDialog1.Filter := 'EEPROM file|*.bin';
 
@@ -393,6 +456,7 @@ Form1.edit(Sender);
 
   // Выбор текстовых файлов как стартовый тип фильтра
   saveDialog1.FilterIndex := 1;
+  SaveDialog1.FileName:=FormatDateTime('dd.mm.yyyy_hh.nn.ss', Now)+'.bin';
 //сохранить текст из Memo1-рабочей области редактора
 if Form1.SaveDialog1.Execute then begin
   //Если файл выбран,
@@ -408,8 +472,7 @@ if Form1.SaveDialog1.Execute then begin
   inc(i);
  end;
   //Полный путь файла в директории исполняемого файла программы.
- // FileName := ExtractFilePath(ParamStr(0)) + 'test1.bin';
-   ln:=Length(eeprom) div 2;
+  // ln:=Length(eeprom) div 2;
   //Формируем двоичные данные по HEX кодам.
   SetLength(SBin,2048);
   HexToBin(PChar(eeprom), PChar(SBin), Length(SBin));
@@ -425,8 +488,17 @@ if Form1.SaveDialog1.Execute then begin
 end;
 end;
 
+(******************************************************************************)
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
+   WriteString('TUNEUP', 'StartPoint', edit1.text);
+   StringGrid2.Refresh;
+end;
 
-procedure TForm1.CheckBox1Click(Sender: TObject);
+(******************************************************************************)
+
+procedure TForm1.CheckBox1Click(Sender: TObject);      //Последнее изменение
 var
   i,j:integer;
   zn:real;
@@ -459,12 +531,57 @@ end;
 (******************************************************************************)
 
 procedure TForm1.FormCreate(Sender: TObject);
-var i,j,k:integer;
+var i,j,k,d,razm:integer; filename:string;
 begin
+fileName := ExtractFilePath(ParamStr(0)) + 'Config.ini';
+if not FileExists(fileName)
+  then with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
+  begin
+   WriteString('DIR', 'EESAVE', ExtractFilePath(ParamStr(0)));
+   WriteString('DIR', 'EEPROM', ExtractFilePath(ParamStr(0)));
+   WriteString('DIR', 'LOG', ExtractFilePath(ParamStr(0)));
+   WriteString('TUNEUP', 'StartPoint', inttostr(1));
+  for d:=1 to 16 do
+  begin
+   case d of
+    1:razm:=600;
+    2:razm:=720;
+    3:razm:=840;
+    4:razm:=990;
+    5:razm:=1170;
+    6:razm:=1380;
+    7:razm:=1650;
+    8:razm:=1950;
+    9:razm:=2310;
+    10:razm:=2730;
+    11:razm:=3210;
+    12:razm:=3840;
+    13:razm:=4530;
+    14:razm:=5370;
+    15:razm:=6360;
+    16:razm:=7500;
+    end;
+    if Length(inttostr(razm)) =3 then WriteString('GridRPM', inttostr(d), '0'+inttostr(razm)) else
+    WriteString('GridRPM', inttostr(d), inttostr(razm));
+  end;
+    Free;
+end;
+
 with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
   begin
     openDialog2.InitialDir := ReadString('DIR', 'EEPROM', '');
     openDialog1.InitialDir := ReadString('DIR', 'LOG', '');
+    saveDialog1.InitialDir := ReadString('DIR', 'EESAVE', '');
+    //VE.txt
+    saveDialog2.InitialDir := ReadString('DIR', 'EEPROM', '');
+    openDialog3.InitialDir := ReadString('DIR', 'EEPROM', '');
+    edit1.Text:=ReadString('TUNEUP', 'StartPoint', '');
+ //разметка столбцов
+  for d:=1 to 16 do
+  begin
+   stringGrid2.Cells[0,d]:=ReadString('GridRPM', inttostr(d), '');
+  end;
+
     Free;
   end;
 // Разрешаем сохранять файлы типа .txt и .doc
@@ -485,31 +602,6 @@ for i:= 1 to 16 do begin
       stringGrid2.Cells[i,k]:=inttostr(j);
       inc(j)
     end;
-//разметка столбцов
-j:=1;
- for i:= 1 to 16 do begin
-    k:=0;
-    case i of
-    1:j:=600;
-    2:j:=720;
-    3:j:=840;
-    4:j:=990;
-    5:j:=1170;
-    6:j:=1380;
-    7:j:=1650;
-    8:j:=1950;
-    9:j:=2310;
-    10:j:=2730;
-    11:j:=3210;
-    12:j:=3840;
-    13:j:=4530;
-    14:j:=5370;
-    15:j:=6360;
-    16:j:=7500;
-    end;
-      stringGrid2.Cells[k,i]:=inttostr(j);
-    end;
-
 //Загружаем в листинг список начальных значений
 for i:= 1 to 17 do begin
     k:=1;
@@ -540,7 +632,10 @@ Showmessage('Программа предназначена для составления таблиц VE по логам.'+#13#10
 'После чего следует залить EEPROM обратно в блок Secu-3T и затем перейти к пункту (2)'
 +#13#10+#13#10+#13#10+
 'Так же возможно просмотреть график наполнения как в менеджере и непосредственно на графике поправить некоторые точки.'
-+#13#10+#13#10+#13#10+'*Пункт 1,4 и 5 выполняется только в случае первоначальной настройки.');
++#13#10+#13#10+#13#10+'*Пункт 1,4 и 5 выполняется только в случае первоначальной настройки.'
++#13#10+#13#10+#13#10+'Фиксация точек, что бы рассчет проводился во всех точках кроме отмеченных'
++#13#10+'Зажимаем Shift и кликаем левой кнопкой мыши по нужной ячейке. Загорелась синим-значит зафиксирована.'
++#13#10+'Снять фиксацию можно так же зажав шифт и нажав правую кнопку мыши на нужных уже зафиксированных ячейках');
 end;
 (******************************************************************************)
 procedure TForm1.N3DPlot1Click(Sender: TObject);
@@ -566,6 +661,7 @@ if Form1.OpenDialog1.Execute then begin//если выбран файл
  MyThread.Priority:=tpNormal;
 N7.Enabled:=true; end
 end;
+(******************************************************************************)
 
 procedure TForm1.N6Click(Sender: TObject);
 begin
@@ -575,11 +671,15 @@ Checked:=true
 else
 Checked:=false;
 end;
+(******************************************************************************)
 
 procedure TMyThread.Execute;
-var k,s:TStringList;i:integer; F: TThreadWindow;
+var k,s:TStringList;i:integer;
+OldCursor: TCursor;
 begin
  i:=0;
+ OldCursor := Screen.Cursor;
+ Screen.Cursor := crHourGlass;
         try
 s:=TStringList.Create;
 k:=TStringList.Create;
@@ -587,24 +687,22 @@ k.LoadFromFile(fname);
 s.Delimiter:=','; // Это разделитель между элементами
 loglen:=k.Count;
 SetLength(data,loglen,3);
-F := TThreadWindow.Show;
+
 for i:=0 to k.Count-1 do begin
  s.DelimitedText:=k[i];
  data[i,0]:=strtoint(s[1]);
  data[i,1]:=strtoint(s[8]);
  data[i,2]:=strtofloat(s[31]);
  end;
- F.Destroy;
-
-Form1.Caption:='VE LogTuner'+' Открыт ' + fname+hexname;
-Form1.n10.Enabled:=true;
+Form1.Log1.caption:='LOG: '+ExtractFileName(fname);
+Form1.Caption:='VE LogTuner';
+ Form1.n10.Enabled:=true;
+ Screen.Cursor := OldCursor;
  s.free;k.Free;
  except
     on E : Exception do
       ShowMessage(E.ClassName+' ошибка с сообщением =) : '+E.Message);
-
        end;
-
 end;
 
 (******************************************************************************)
@@ -619,40 +717,80 @@ end;
 
 (******************************************************************************)
 procedure smlst(arh:Pointer;n:integer;k:integer);    //Пересчет значений в STRGRD2
-var i,cs,Flag:integer; n1:array [0..15] of integer;
+var i,cs,Flag:integer;
+n1:array [0..15] of integer;
+ranges: array of array of Integer;
  s1:array [0..15] of real;
  sr1:array [0..15] of real;
   arr: array of array of real;
   znac:string;
   zn:real;
+  MyComponent,MyComponent1: TComponent;
+  d:integer;
+  const
+  RANGE_LEFT = 0;
+  RANGE_RIGTH = 1;
+
+  procedure SetRangeValue(Number: Integer; EditLeft, EditRigth: TEdit);
+  begin
+    // заполняем диапозон
+    if number=15 then begin
+    ranges[Number - 1][RANGE_LEFT] := StrToIntDef(EditLeft.Text, 0);
+    ranges[Number - 1][RANGE_RIGTH] := StrToIntDef('9000', 0);
+    end
+    else begin
+    ranges[Number - 1][RANGE_LEFT] := StrToIntDef(EditLeft.Text, 0);
+    ranges[Number - 1][RANGE_RIGTH] := StrToIntDef(EditRigth.Text, 0)-1;
+    end;
+  end;
+
+   procedure ProcessRangeValue(AValue: Integer;AD: Integer);
+  var
+    I: Integer;
+  begin
+    // ищем по диапозону и сохраняем результат
+    for I := 0 to Length(ranges) - 1 do
+    begin
+      if (AValue >= ranges[I][RANGE_LEFT]) and (AValue <= ranges[I][RANGE_RIGTH]) then
+      begin
+        s1[i]:=s1[i]+arr[1,AD]; inc(n1[i]);
+        Break;
+      end;
+    end;
+  end;
+
 begin
 Pointer(arr) := arh;
 for i:=0 to 15 do  begin
   n1[i]:=0;
   s1[i]:=0;
   sr1[i]:=0;
-end;  Try
-for i:=0 to n do begin
-cs:=Floor(arr[0,i]/1);
-case cs of
-600..719:begin s1[0]:=s1[0]+arr[1,i]; inc(n1[0]);end;
-720..839:begin s1[1]:=s1[1]+arr[1,i]; inc(n1[1]);end;
-840..989:begin s1[2]:=s1[2]+arr[1,i]; inc(n1[2]);end;
-990..1169:begin s1[3]:=s1[3]+arr[1,i]; inc(n1[3]);end;
-1170..1379:begin s1[4]:=s1[4]+arr[1,i]; inc(n1[4]);end;
-1380..1649:begin s1[5]:=s1[5]+arr[1,i]; inc(n1[5]);end;
-1650..1949:begin s1[6]:=s1[6]+arr[1,i]; inc(n1[6]);end;
-1950..2309:begin s1[7]:=s1[7]+arr[1,i]; inc(n1[7]);end;
-2310..2729:begin s1[8]:=s1[8]+arr[1,i]; inc(n1[8]);end;
-2730..3209:begin s1[9]:=s1[9]+arr[1,i]; inc(n1[9]);end;
-3210..3839:begin s1[10]:=s1[10]+arr[1,i]; inc(n1[10]);end;
-3840..4529:begin s1[11]:=s1[11]+arr[1,i]; inc(n1[11]);end;
-4530..5369:begin s1[12]:=s1[12]+arr[1,i]; inc(n1[12]);end;
-5370..6359:begin s1[13]:=s1[13]+arr[1,i]; inc(n1[13]);end;
-6360..7499:begin s1[14]:=s1[14]+arr[1,i]; inc(n1[14]);end;
-7500..9000:begin s1[15]:=s1[15]+arr[1,i]; inc(n1[15]);end;
 end;
-end;
+Try
+
+ // готовим диапозон
+  SetLength(ranges, 16);
+  for I := 0 to 15 do
+  begin
+    SetLength(ranges[I], 2);
+  end;
+  //Заполняем
+  for d:=2 to 16 do
+  begin
+   MyComponent := Form4.FindComponent('Edit'+IntToStr(d-1));
+   MyComponent1 := Form4.FindComponent('Edit'+IntToStr(d));
+   if MyComponent <> nil then if d=16 then begin
+   SetRangeValue(d-1, TEdit(MyComponent), TEdit(MyComponent1));
+   SetRangeValue(15, TEdit(MyComponent1), TEdit(MyComponent1));
+   end else  SetRangeValue(d-1, TEdit(MyComponent), TEdit(MyComponent1));
+  end;
+  // проверяем значения
+  for I := 0 to N do begin
+  begin
+    cs := Floor(arr[0, I] / 1);
+    ProcessRangeValue(cs,i);
+  end;
+  end
 Except
       ShowMessage('Неизвестная ошибка');
   end;
@@ -669,12 +807,19 @@ for i:= 2 to form1.stringGrid2.Rowcount do begin
 Flag := Integer(form1.StringGrid2.Rows[i-1].Objects[k]);
 if not (sr1[i-2]=0) and (Flag<>4) then begin
 //array[столбец,строка]
- zn:=strtofloat(form1.stringGrid2.Cells[k,i-1])+sr1[i-2];
- znac:=floattostrf(zn,fffixed,3,2);
-    if not (form1.stringGrid2.Cells[k,i-1]=znac) then
+  zn:=strtofloat(form1.stringGrid2.Cells[k,i-1])+sr1[i-2];
+  znac:=floattostrf(zn,fffixed,3,2);
+     if (zn<0) or (zn>2)then begin
+        MessageDlg('Ошибка, выход за границы диапазона',mtError, mbOKCancel, 0);
+           //Cells[i, j] := st;      //Оставлять старое значение
+          form1.StringGrid2.Cells[k,i-1] := '0.00';         //Менять на 0
+          form1.StringGrid2.Rows[i-1].Objects[k] := TObject(5);
+         end
+    else
+     if not (form1.stringGrid2.Cells[k,i-1]=znac) then
     begin
         nvhod[k,i-2]:=n1[i-2];
-        stsum[k,i-2]:=sr1[i-2];
+       if not (Flag=4) then stsum[k,i-2]:=sr1[i-2];
       form1.StringGrid2.Rows[i-1].Objects[k] := TObject(2);
       form1.stringGrid2.Cells[k,i-1]:=znac;
     end;
@@ -688,13 +833,12 @@ for i:=0 to 15 do  begin
   s1[i]:=0;
   sr1[i]:=0;
 end;
-
 end;
 
 (******************************************************************************)
 
 procedure dk(s:integer);      //Занесение значений оборотов и лямды в массив и его сортировка
-var i,j,k,n:integer; f:string; b,b1:real; switch:boolean;
+var i,j,k:integer;
 begin
 SetLength(rash,2,length(data));
 FormatSettings.DecimalSeparator:='.';
@@ -723,10 +867,11 @@ end;
 (******************************************************************************)
 
 procedure TForm1.N10Click(Sender: TObject);   //Запуск пересчета значений
-var i:integer;  F: TThreadWindow;
+var i:integer; OldCursor: TCursor;
 begin
+ OldCursor := Screen.Cursor;
+ Screen.Cursor := crHourGlass;
 if(length(data)>0 )then
- F := TThreadWindow.Show;
    for i:= 1 to Form1.StringGrid2.ColCount-1 do
    try
     dk(i);
@@ -734,7 +879,7 @@ if(length(data)>0 )then
     on E : Exception do
       ShowMessage(E.ClassName+' ошибка с сообщением : '+E.Message+' переменная равна '+inttostr(i));
    end;
-   F.Destroy;
+  Screen.Cursor := OldCursor;
      form1.Caption:=form1.Caption+ ' - Изменено';
      Button3.Enabled:=true;
      checkbox1.Enabled:=true;
@@ -742,6 +887,53 @@ if(length(data)>0 )then
      N3DPlot1.Enabled:=true;
      N3DPlot2.Enabled:=true;
      N10.Enabled:=false;
+end;
+(******************************************************************************)
+procedure TForm1.N12Click(Sender: TObject);
+var f1:textfile; i,j,iTmp: Integer; st,fname:string;
+begin
+  OpenDialog3.InitialDir := form2.Edit2.Text;
+// Разрешаем сохранять файлы типа .txt и .doc
+  OpenDialog3.Filter := 'VE Text|*.txt|';
+
+  // Установка расширения по умолчанию
+ OpenDialog3.DefaultExt := '*.txt';
+
+  // Выбор текстовых файлов как стартовый тип фильтра
+ OpenDialog3.FilterIndex := 1;
+openDialog3.InitialDir := form2.Edit1.Text;
+
+if Form1.OpenDialog3.Execute then begin//если выбран файл
+  fname:=OpenDialog3.FileName;
+AssignFile(F1, fname);
+Reset(F1);
+
+with StringGrid2 do
+   begin
+     // Get number of columns
+    Readln(f1, iTmp);
+     ColCount := iTmp;
+     // Get number of rows
+    Readln(f1, iTmp);
+     RowCount := iTmp;
+     // loop through cells & fill in values
+    for i := 1 to ColCount-1 do
+       for j := 1 to RowCount-1 do
+       begin
+         Readln(f1, st);
+         if (strtofloat(st)<0) or (strtofloat(st)>2)then begin
+         MessageDlg('Ошибка, выход за границы диапазона',mtError, mbOKCancel, 0);
+         //Cells[i, j] := st;      //Оставлять старое значение
+         Cells[i, j] := '0.00';         //Менять на 0
+         Rows[j].Objects[i] := TObject(5);
+         end else  begin
+           Cells[i, j] := st;
+         Rows[j].Objects[i] := TObject(1);
+         end;
+       end;
+   end;
+CloseFile(F1);
+end;
 end;
 (******************************************************************************)
 

@@ -4,7 +4,7 @@ interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, TeEngine, ExtCtrls, TeeProcs, Chart, StdCtrls,unit1, Series,
+  Dialogs, TeEngine, ExtCtrls, TeeProcs, Chart, StdCtrls, unit1, unit4, Series,
   SDL_plot3d,SDL_sdlbase,SDL_math2, SDL_filesys, SDL_matrix, SDL_NumLab;
 
 type
@@ -21,9 +21,18 @@ type
     CheckBox2: TCheckBox;
     NLabMag: TNumLab;
     ScrBarMagnif: TScrollBar;
-    Plot3D1: TPlot3D;
-    Series2: TLineSeries;
     datab: TButton;
+    Panel1: TPanel;
+    Button5: TButton;
+    Button4: TButton;
+    Button3: TButton;
+    Label3: TLabel;
+    Panel2: TPanel;
+    Label4: TLabel;
+    CheckBox3: TCheckBox;
+    CheckBox4: TCheckBox;
+    Series2: TLineSeries;
+    Plot3D1: TPlot3D;
     procedure rash1Change(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -41,6 +50,11 @@ type
       var color: TColor);
       procedure ScrBarMagnifChange(Sender: TObject);
     procedure databClick(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure CheckBox3Click(Sender: TObject);
+    procedure CheckBox4Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,6 +65,8 @@ var
   Form3: TForm3;
   mouse:string;
   mint:integer;
+  hiy:integer;
+  loy:integer;
   mins, maxs : array[1..3] of double;
   databuf: array[0..16,0..16] of string;    //Буфер для показа изменений
  const
@@ -58,10 +74,60 @@ var
   HoleXHigh = 16;
   HoleYLow = 17;
   HoleYHigh = 17;
-
+ type
+ tSmoothLevel = (Smooth3, Smooth5, Smooth7);
+ taSmooth = array [0..1023] of Double;
 implementation
 
 {$R *.dfm}
+(******************************************************************************)
+Function Smooth (MaxI: SmallInt; Level: tSmoothLevel; Yi: taSmooth): taSmooth;
+var i: SmallInt;
+   Smoo: taSmooth;
+begin
+ Case Level of
+   Smooth3 : begin
+ for i:=0 to MaxI-1 do begin
+   If i = 0 then Smoo[i] := (5*Yi[i] + 2*Yi[i+1] - Yi[i+2]) / 6
+   else if i = MaxI-1 then Smoo[i] := (5*Yi[i] + 2*Yi[i-1] - Yi[i-2]) / 6
+   else  Smoo[i] := (Yi[i] + Yi[i-1] + Yi[i+1]) / 3;
+ end;
+      end;
+   Smooth5 : begin
+ for i:=0 to MaxI-1 do begin
+   If i = 0 then
+     Smoo[i] := (3*Yi[i] + 2*Yi[i+1] + Yi[i+2] - Yi[i+4]) / 5
+   else If i = MaxI-1 then
+     Smoo[i] := (3*Yi[i] + 2*Yi[i-1] + Yi[i-2] - Yi[i-4]) / 5
+   else if i = 1 then
+     Smoo[i] := (4*Yi[i-1] + 3*Yi[i] + 2*Yi[i+1] + Yi[i+2]) / 10
+   else if i = MaxI-2 then
+     Smoo[i] := (4*Yi[i+1] + 3*Yi[i] + 2*Yi[i-1] + Yi[i-2]) / 10
+   else Smoo[i] := (Yi[i-2] + Yi[i-1] + Yi[i] + Yi[i+1] + Yi[i+2]) / 5;
+ end;
+      end;
+   Smooth7 : begin
+ for i:=0 to MaxI-1 do begin
+   If i = 0 then Smoo[i] :=
+     (39*Yi[i] + 8*Yi[i+1] - 4*(Yi[i+2] + Yi[i+3] - Yi[i+4]) + Yi[i+5] - 2*Yi[i+6]) / 42
+   else if i = MaxI-1 then Smoo[i] :=
+     (39*Yi[i] + 8*Yi[i-1] - 4*(Yi[i-2] + Yi[i-3] - Yi[i-4]) + Yi[i-5] - 2*Yi[i-6]) / 42
+   else if i = 1 then Smoo[i] :=
+     ( 8*Yi[i-1] + 19*Yi[i] + 16*Yi[i+1] + 6*Yi[i+2] - 4*Yi[i+3] - 7*Yi[i+4] + 4*Yi[i+5]) / 42
+   else if i = MaxI-2 then Smoo[i] :=
+     ( 8*Yi[i+1] + 19*Yi[i] + 16*Yi[i-1] + 6*Yi[i-2] - 4*Yi[i-3] - 7*Yi[i-4] + 4*Yi[i-5]) / 42
+   else if i = 2 then Smoo[i] :=
+     (-4*Yi[i-2] + 16* Yi[i-1] + 19*Yi[i] + 12*Yi[i+1] + 2*Yi[i+2] - 4*Yi[i+3] + Yi[i+4]) / 42
+   else if i = MaxI-3 then Smoo[i] :=
+     (-4*Yi[i+2] + 16* Yi[i+1] + 19*Yi[i] + 12*Yi[i-1] + 2*Yi[i-2] - 4*Yi[i-3] + Yi[i-4]) / 42
+   else Smoo[i] :=
+     ( 7*Yi[i] + 6*(Yi[i+1] + Yi[i-1]) + 3*(Yi[i-2] + Yi[i+2]) - 2*(Yi[i-3] + Yi[i+3])) / 21;
+   end;
+      end;
+ end;
+ Result := Smoo;
+end;
+
 (******************************************************************************)
 procedure TForm3.databClick(Sender: TObject);
 var i,j:integer; znac:string; zn:real;
@@ -75,14 +141,14 @@ end;
 end;
 
 procedure TForm3.Button1Click(Sender: TObject);
-var i,j,e,l,rcout:integer; x,y,z:real;
+var i,j,e,l,rcout,s:integer; x,y,z:real;
 begin
 Plot3D1.Gridmat.Fill(0);
 rcout:=form1.stringGrid2.rowcount;
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&//
 
 Plot3D1.GridMat.Resize(rcout,rcout);
-Plot3D1.SetRange (1, 16, 600, 7500, 0, 1.4);
+Plot3D1.SetRange (1, 16, loy, hiy, 0, 1.4);
 Plot3D1.CaptionX:='Расходы';
 Plot3D1.CaptionY:='Обороты';
 Plot3D1.CaptionZ:='Коэфициент';
@@ -117,11 +183,10 @@ rash1.Min:=1;
 rash1.Max:=16;
 //если необходимо можешь задать  min X , max Y,   min Y , max Y
       BottomAxis.Automatic:= True;
-      BottomAxis.Maximum := 7500;
-      BottomAxis.Minimum := 600;
       LeftAxis.Automatic := False;
-      LeftAxis.Maximum := 1.5;
-      LeftAxis.Minimum := -0.5;
+      LeftAxis.Increment := 1;
+      LeftAxis.Maximum := 2;
+      LeftAxis.Minimum := 0;
 
    UndoZoom;//востанавливаем исходный масштаб
    Title.Text.Clear;
@@ -131,10 +196,10 @@ rash1.Max:=16;
    LeftAxis.Title.Caption    := 'Проценты';//подписываем Y
    Repaint;
   end;
- with form3.Chart1 do
+
+ with Chart1 do
   begin
   Series1.Clear;
- // legend.Visible:=True;
 ///создаём серию
  (Series1 as TLineSeries).LinePen.Width:=2;//толщина
  Series1.XValues.Order:= LoNone;               //чтобы соединялись точки так как их вводят!!!
@@ -146,21 +211,20 @@ for j := 1 to form1.StringGrid2.RowCount-1 do
   begin
   FormatSettings.DecimalSeparator := '.';
   y:=strtofloat(form1.StringGrid2.Cells[rash1.Position,j]);
-  x:=strtofloat(form1.StringGrid2.Cells[0,j]);
+  x:=j;
    Series1.AddXY(x,y, form1.StringGrid2.Cells[0,j],clRed);
     end;
 Series1.Title := ''; //
  Series1.Active := True;
   end;
 
-  with form3.Chart1 do
+  with Chart1 do
   begin
   Series2.Clear;
-  //legend.Visible:=True;
 ///создаём серию
  (Series2 as TLineSeries).LinePen.Width:=2;//толщина
  Series2.XValues.Order:= LoNone;               //чтобы соединялись точки так как их вводят!!!
- Series2.Marks.Visible:= True;
+ Series2.Marks.Visible:= False;
  Series2.Marks.Style:=smsValue;
  x:=0;
  y:=0;
@@ -168,8 +232,8 @@ for j := 1 to form1.StringGrid2.RowCount-1 do
   begin
   FormatSettings.DecimalSeparator := '.';
   y:=strtofloat(databuf[rash1.Position-1,j-1]);
-  x:=strtofloat(form1.StringGrid2.Cells[0,j]);
-   Series2.AddXY(x,y, '',clAqua);
+  x:=j;
+   Series2.AddXY(x,y, form1.StringGrid2.Cells[0,j],clAqua);
     end;
 Series2.Title := ''; //
  Series2.Active := True;
@@ -187,22 +251,22 @@ if rcout=17 then  rash1.max:=16;
 Label1.Caption:='Обороты:';
 label2.left:=104;
 case rash1.Position of
-  1:Label2.Caption:='600';
-  2:Label2.Caption:='720';
-  3:Label2.Caption:='840';
-  4:Label2.Caption:='990';
-  5:Label2.Caption:='1170';
-  6:Label2.Caption:='1380';
-  7:Label2.Caption:='1650';
-  8:Label2.Caption:='1950';
-  9:Label2.Caption:='2310';
-  10:Label2.Caption:='2730';
-  11:Label2.Caption:='3210';
-  12:Label2.Caption:='3840';
-  13:Label2.Caption:='4530';
-  14:Label2.Caption:='5370';
-  15:Label2.Caption:='6360';
-  16:Label2.Caption:='7500';
+  1:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  2:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  3:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  4:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  5:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  6:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  7:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  8:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  9:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  10:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  11:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  12:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  13:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  14:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  15:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
+  16:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
 end;
 rash1.Min:=1;
 rash1.Max:=rcout-1;
@@ -211,8 +275,8 @@ rash1.Max:=rcout-1;
       BottomAxis.Minimum := 1;
       BottomAxis.Maximum := 16;
       LeftAxis.Automatic := False;
-      LeftAxis.Maximum := 1.5;
-      LeftAxis.Minimum := -0.5;
+      LeftAxis.Maximum := 2;
+      LeftAxis.Minimum := 0;
 
    UndoZoom;//востанавливаем исходный масштаб
    Title.Text.Clear;
@@ -239,8 +303,8 @@ for j := 1 to form1.StringGrid2.ColCount-1 do
   begin
   FormatSettings.DecimalSeparator := '.';
   y:=strtofloat(form1.StringGrid2.Cells[j,rash1.Position]);
-  x:=strtofloat(form1.StringGrid2.Cells[j,0]);
-   Series1.AddXY(x,y, '',clRed);
+  x:=j;
+   Series1.AddXY(x,y, form1.StringGrid2.Cells[0,j],clRed);
     end;
 Series1.Title := ''; //
  Series1.Active := True;
@@ -253,7 +317,7 @@ Series1.Title := ''; //
 ///создаём серию
  (Series2 as TLineSeries).LinePen.Width:=2;//толщина
  Series2.XValues.Order:= LoNone;               //чтобы соединялись точки так как их вводят!!!
- Series2.Marks.Visible:= True;
+ Series2.Marks.Visible:= False;
  Series2.Marks.Style:=smsValue;
  x:=0;
  y:=0;
@@ -261,8 +325,8 @@ for j := 1 to form1.StringGrid2.RowCount-1 do
   begin
   FormatSettings.DecimalSeparator := '.';
   y:=strtofloat(databuf[j-1,rash1.Position-1]);
-  x:=strtofloat(form1.StringGrid2.Cells[j,0]);
-   Series2.AddXY(x,y, '',clAqua);
+  x:=j;
+   Series2.AddXY(x,y, form1.StringGrid2.Cells[0,j],clAqua);
     end;
 Series2.Title := ''; //
  Series2.Active := True;
@@ -277,9 +341,77 @@ procedure TForm3.Button2Click(Sender: TObject);
 begin
 form3.Visible:=false;
 end;
+ (******************************************************************************)
+procedure TForm3.Button3Click(Sender: TObject);  //Smooth3
+var j:integer; y:taSmooth; znac:string;
+begin
+if checkbox1.Checked=false then begin for j := 2 to form1.StringGrid2.RowCount do
+  y[j-2]:=strtofloat(form1.StringGrid2.Cells[rash1.Position,j-1]);
+y:=Smooth(16,Smooth3, y);
+for j := 2 to form1.StringGrid2.RowCount do  begin
+ znac:=floattostrf(y[j-2],fffixed,3,2);
+  form1.StringGrid2.Cells[rash1.Position,j-1]:=znac;
+end;
+end
+else begin for j := 2 to form1.StringGrid2.ColCount do
+  y[j-2]:=strtofloat(form1.StringGrid2.Cells[j-1,rash1.Position]);
+  y:=Smooth(16,Smooth3, y);
+for j := 2 to form1.StringGrid2.ColCount do  begin
+ znac:=floattostrf(y[j-2],fffixed,3,2);
+  form1.StringGrid2.Cells[j-1,rash1.Position]:=znac;
+end;
+end;
+Button1Click(Sender);
+rash1Change(Sender);
+end;
+ (******************************************************************************)
+procedure TForm3.Button4Click(Sender: TObject);   //Smooth5
+var j:integer; y:taSmooth; znac:string;
+begin
+if checkbox1.Checked=false then begin for j := 2 to form1.StringGrid2.RowCount do
+  y[j-2]:=strtofloat(form1.StringGrid2.Cells[rash1.Position,j-1]);
+y:=Smooth(16,Smooth5, y);
+for j := 2 to form1.StringGrid2.RowCount do  begin
+ znac:=floattostrf(y[j-2],fffixed,3,2);
+  form1.StringGrid2.Cells[rash1.Position,j-1]:=znac;
+end;
+end
+else begin for j := 2 to form1.StringGrid2.ColCount do
+  y[j-2]:=strtofloat(form1.StringGrid2.Cells[j-1,rash1.Position]);
+  y:=Smooth(16,Smooth5, y);
+for j := 2 to form1.StringGrid2.ColCount do  begin
+ znac:=floattostrf(y[j-2],fffixed,3,2);
+  form1.StringGrid2.Cells[j-1,rash1.Position]:=znac;
+end;
+end;
+Button1Click(Sender);
+rash1Change(Sender);
+end;
+ (******************************************************************************)
+procedure TForm3.Button5Click(Sender: TObject);   //Smooth7
+var j:integer; y:taSmooth; znac:string;
+begin
+if checkbox1.Checked=false then begin for j := 2 to form1.StringGrid2.RowCount do
+  y[j-2]:=strtofloat(form1.StringGrid2.Cells[rash1.Position,j-1]);
+y:=Smooth(16,Smooth7, y);
+for j := 2 to form1.StringGrid2.RowCount do  begin
+ znac:=floattostrf(y[j-2],fffixed,3,2);
+  form1.StringGrid2.Cells[rash1.Position,j-1]:=znac;
+end;
+end
+else begin for j := 2 to form1.StringGrid2.ColCount do
+  y[j-2]:=strtofloat(form1.StringGrid2.Cells[j-1,rash1.Position]);
+  y:=Smooth(16,Smooth7, y);
+for j := 2 to form1.StringGrid2.ColCount do  begin
+ znac:=floattostrf(y[j-2],fffixed,3,2);
+  form1.StringGrid2.Cells[j-1,rash1.Position]:=znac;
+end;
+end;
+Button1Click(Sender);
+rash1Change(Sender);
+end;
 
 (******************************************************************************)
-
 procedure TForm3.Chart1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -298,10 +430,12 @@ begin
 if (ssCtrl in Shift) and (mouse='mbLeft') and (mint <> -1)then
   begin
   Series1.GetCursorValues(xX, yY);
+  if (0<=yY) and (yY<=2) then  begin
    Series1.YValue[mint]:=strtofloat(FormatFloat( '0.##',(yY)));
   if (checkbox1.Checked=false)
     then form1.StringGrid2.Cells[rash1.Position,mint+1]:=FormatFloat( '0.##',(yY))
     else form1.StringGrid2.Cells[mint+1,rash1.Position]:=FormatFloat( '0.##',(yY))
+  end;
   end;
   end;
 end;
@@ -311,7 +445,7 @@ procedure TForm3.Chart1MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
 mouse:='';
-Form1.edit(sender);
+Form1.editClick(sender);
 end;
 (******************************************************************************)
 
@@ -325,14 +459,34 @@ if checkbox2.Checked=true then
         label1.Visible:=false;
         label2.Visible:=false;
         rash1.Visible:=false;
+        ScrBarMagnif.Enabled:=true;
        end
        else begin
         Plot3D1.Visible:=false;
+        ScrBarMagnif.Enabled:=false;
         Chart1.Visible:=true;
         label1.Visible:=true;
         label2.Visible:=true;
         rash1.Visible:=true;
        end;
+end;
+(******************************************************************************)
+procedure TForm3.CheckBox3Click(Sender: TObject);
+begin
+if (CheckBox3.Checked = True) and (Series1.Visible= True) then
+begin Series2.Visible:= False; CheckBox4.Enabled:=false;
+end
+else begin Series2.Visible:= True; CheckBox4.Enabled:=True;
+end;
+end;
+(******************************************************************************)
+procedure TForm3.CheckBox4Click(Sender: TObject);
+begin
+if (CheckBox4.Checked = True) and (Series2.Visible= True) then begin
+Series1.Visible:= False;  CheckBox3.Enabled:=false; Series2.Marks.Visible:= True;
+end else begin
+  Series1.Visible:= True;  CheckBox3.Enabled:=True; Series2.Marks.Visible:= False;
+end;
 end;
 
 (******************************************************************************)
@@ -344,10 +498,16 @@ begin
 Label1.Caption:='Расход';
 rash1.Min:=1;
 rash1.Max:=16;
+hiy:=0;
+loy:=0;
 for i:= 2 to form1.stringGrid2.Rowcount do
    for j := 2 to form1.stringGrid2.colcount do
   databuf[j-2,i-2]:=form1.Edit1.Text;
 Button1Click(Sender);
+
+    loy:=strtoint(Form4.edit1.text);
+    hiy:=strtoint(Form4.edit16.text);
+   ScrBarMagnif.Enabled:=false;
 end;
 (******************************************************************************)
 
@@ -377,6 +537,8 @@ procedure TForm3.rash1Change(Sender: TObject);
 begin
 label2.Caption:=inttostr(rash1.Position);
 Button1Click(Sender);
+if CheckBox3.Checked=true then CheckBox3Click(Sender);
+if CheckBox4.Checked=true then CheckBox4Click(Sender);
 end;
 (******************************************************************************)
 
