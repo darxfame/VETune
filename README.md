@@ -1,4 +1,4 @@
-# VETune Release-1.5 https://github.com/metra52/VETune/archive/v1.4.5.1.zip
+# VETune Release-1.5 https://github.com/metra52/VETune/archive/v1.5.zip
 
 #(RUS)Вышла новая версия 1.5, в которой переработан интерфейс, добавлены и обновлены некоторые функции.
 -Редактирование ячеек таблицы по клику на левую кнопку мыши

@@ -1,0 +1,48 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{7764AA14-81F6-4A7C-9456-857294FACDC3}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="VETune.dproj">
+				<Dependencies/>
+			</Projects>
+			<Projects Include="ENU\VETune_ENU.bdsproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="VETune">
+			<MSBuild Projects="VETune.dproj"/>
+		</Target>
+		<Target Name="VETune:Clean">
+			<MSBuild Projects="VETune.dproj" Targets="Clean"/>
+		</Target>
+		<Target Name="VETune:Make">
+			<MSBuild Projects="VETune.dproj" Targets="Make"/>
+		</Target>
+		<Target Name="VETune_ENU">
+			<MSBuild Projects="ENU\VETune_ENU.bdsproj"/>
+		</Target>
+		<Target Name="VETune_ENU:Clean">
+			<MSBuild Projects="ENU\VETune_ENU.bdsproj" Targets="Clean"/>
+		</Target>
+		<Target Name="VETune_ENU:Make">
+			<MSBuild Projects="ENU\VETune_ENU.bdsproj" Targets="Make"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="VETune;VETune_ENU"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="VETune:Clean;VETune_ENU:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="VETune:Make;VETune_ENU:Make"/>
+		</Target>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')" Project="$(BDS)\Bin\CodeGear.Group.Targets"/>
+	</Project>
