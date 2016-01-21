@@ -253,8 +253,13 @@ end;
 (******************************************************************************)
 procedure TForm1.StringGrid2SelectCell(Sender: TObject; ACol, ARow: Integer;
   var CanSelect: Boolean);
+  var poi:string;
 begin
-StringGrid2.Cells[ACol,ARow] := InputBox('Редактирование значения', 'Введите значение', StringGrid2.Cells[ACol,ARow]);
+poi:=InputBox('Редактирование значения', 'Введите значение', StringGrid2.Cells[ACol,ARow]);
+if (strtofloat(poi)<0) or (strtofloat(poi)>2) then
+MessageDlg('Ошибка, выход за границы диапазона',mtError, mbOKCancel, 0)
+else
+StringGrid2.Cells[ACol,ARow] := poi;
 end;
 
 (******************************************************************************)
@@ -441,7 +446,7 @@ var
   Fs : TFileStream;
   SBin : AnsiString;
   ln : integer;
-
+  logname:string;
 begin
 Form1.editClick(Sender);
 //Обработчик щелчка на пункте меню ФАЙЛ.СОХРАНИТЬ КАК...
@@ -485,6 +490,14 @@ if Form1.SaveDialog1.Execute then begin
   end;
 
 (**********Завершение*********)
+with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
+  begin
+   WriteString('TUNEUP', 'LASTEE', ExtractFileName(s));
+   logname:=log1.Caption;
+   delete(logname,1,6);
+   logname:=TrimLeft(logname);
+   WriteString('TUNEUP', 'LASTLOG', logname);
+  end;
 end;
 end;
 
@@ -868,7 +881,24 @@ end;
 
 procedure TForm1.N10Click(Sender: TObject);   //Запуск пересчета значений
 var i:integer; OldCursor: TCursor;
+logname,lname,eename,ee:string;
+buttonSelected:integer;
 begin
+with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
+  begin
+  //EEPROM
+   eename:=ReadString('TUNEUP', 'LASTEE', '');
+   ee:=EEPROM1.Caption;
+   //Log
+   logname:=ReadString('TUNEUP', 'LASTLOG', '');
+   lname:=log1.Caption;
+   delete(lname,1,6);
+   lname:=TrimLeft(lname);
+  end;
+if (pos(eename,ee)<>0) and (logname=lname) then
+buttonSelected:= MessageDlg('Этот Log Файл уже рассчитывался в этот EEPROM'+#13#10+'Продолжить выполнение операции?',mtInformation, [mbYes,mbCancel], 0)
+else buttonSelected := mrYes;
+   if buttonSelected = mrYes    then begin
  OldCursor := Screen.Cursor;
  Screen.Cursor := crHourGlass;
 if(length(data)>0 )then
@@ -887,6 +917,9 @@ if(length(data)>0 )then
      N3DPlot1.Enabled:=true;
      N3DPlot2.Enabled:=true;
      N10.Enabled:=false;
+   end;
+
+
 end;
 (******************************************************************************)
 procedure TForm1.N12Click(Sender: TObject);
