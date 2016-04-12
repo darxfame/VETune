@@ -69,6 +69,7 @@
 			<DCCReference Include="Unit4.pas">
 				<Form>Form4</Form>
 			</DCCReference>
+			<DCCReference Include="reinit.pas"/>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
 				<CfgParent>Base</CfgParent>
@@ -93,8 +94,8 @@
 						<VersionInfo Name="AutoIncBuild">True</VersionInfo>
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">5</VersionInfo>
-						<VersionInfo Name="Release">1</VersionInfo>
-						<VersionInfo Name="Build">31</VersionInfo>
+						<VersionInfo Name="Release">2</VersionInfo>
+						<VersionInfo Name="Build">53</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">True</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -106,7 +107,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">Secu3</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">VE LogTuner</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.5.1.31</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.5.2.53</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName"/>
 						<VersionInfoKeys Name="LegalCopyright">by Кочегизов Артем</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks"/>
@@ -126,16 +127,18 @@
 					</Excluded_Packages>
 					<Language>
 						<Language Name="ProjectLang">$00000419</Language>
+						<Language Name="ActiveLang">ENU</Language>
 					</Language>
 					<Resource_DLL_Projects>
 						<Resource_DLL_Projects Name="Item0">Английский (США)*$00000409*ENU*ENU</Resource_DLL_Projects>
 					</Resource_DLL_Projects>
 					<RDP_Source_Files>
-						<RDP_Source_Files Name="Item0">Unit1.dfm</RDP_Source_Files>
-						<RDP_Source_Files Name="Item1">Unit3.dfm</RDP_Source_Files>
-						<RDP_Source_Files Name="Item2">Unit2.dfm</RDP_Source_Files>
-						<RDP_Source_Files Name="Item3">Unit4.dfm</RDP_Source_Files>
-						<RDP_Source_Files Name="Item4">Debug\Win32\VETune.drc</RDP_Source_Files>
+						<RDP_Source_Files Name="Item0">Debug\Win32\VETune.drc</RDP_Source_Files>
+						<RDP_Source_Files Name="Item1">Unit1.dfm</RDP_Source_Files>
+						<RDP_Source_Files Name="Item2">Unit3.dfm</RDP_Source_Files>
+						<RDP_Source_Files Name="Item3">Unit2.dfm</RDP_Source_Files>
+						<RDP_Source_Files Name="Item4">Unit4.dfm</RDP_Source_Files>
+						<RDP_Source_Files Name="Item5">Release\Win32\VETune.drc</RDP_Source_Files>
 					</RDP_Source_Files>
 				</Delphi.Personality>
 				<Platforms>

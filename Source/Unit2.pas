@@ -1,27 +1,10 @@
-{ VETune and VEOnline  - An open source, free editor engine tables unit
-   Copyright (C) 2015 Artem E. Kochegizov. Russia, Moscow
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-   You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-   contacts:
-              http://secu-3.org
-              email: akochegizov@gmail.com
-}
-
 unit Unit2;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, ExtCtrls,IniFiles, FileCtrl,PDirSelected;
+  Dialogs, StdCtrls, ExtCtrls,IniFiles, FileCtrl,PDirSelected,REGISTRY,reinit;
 
 type
   TForm2 = class(TForm)
@@ -39,11 +22,14 @@ type
     Label3: TLabel;
     Button4: TButton;
     Edit3: TEdit;
+    LanguageEnglish: TButton;
+    Label4: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button4Click(Sender: TObject);
+    procedure SwitchLanguage(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,6 +40,11 @@ var
   Form2: TForm2;
 
 implementation
+
+const
+  //SUBLANG_RUSSIAN = $0419;
+  ENGLISH  = (SUBLANG_ENGLISH_US shl 10) or LANG_ENGLISH;
+ // RUSSIAN  = (SUBLANG_RUSSIAN shl 10) or LANG_RUSSIAN;
 
 {$R *.dfm}
 
@@ -90,8 +81,41 @@ DirDialog1.Execute;
 Edit3.Text := DirDialog1.DirPath;
 end;
 
+procedure SetLocalOverrides(const AFileName, ALocaleOverride: string);
+var
+  Reg: TRegistry;
+begin
+  Reg := TRegistry.Create;
+  try
+    if Reg.OpenKey('Software\CoderGear\Locales', True) then
+      Reg.WriteString(ALocaleOverride, AFileName);
+  finally
+    Reg.Free;
+  end;
+end;
+
+
+procedure TForm2.SwitchLanguage(Sender: TObject);
+var
+  Name : String;
+  Size : Integer;
+begin
+if LoadNewResourceModule(TComponent(Sender).Tag) <> 0 then
+  begin
+    ReinitializeForms;
+  end;
+end;
+
 procedure TForm2.FormCreate(Sender: TObject);
 begin
+
+LanguageEnglish.Tag := ENGLISH;
+
+case SysLocale.DefaultLCID of
+    ENGLISH: SwitchLanguage(LanguageEnglish);
+ end;
+
+
   with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
   begin
     Edit3.Text := ReadString('DIR', 'EESAVE', '');

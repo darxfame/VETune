@@ -1,20 +1,3 @@
-{ VETune and VEOnline  - An open source, free editor engine tables unit
-   Copyright (C) 2015 Artem E. Kochegizov. Russia, Moscow
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-   You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-   contacts:
-              http://secu-3.org
-              email: akochegizov@gmail.com
-}
-
 unit Unit1;
 
 interface
@@ -95,14 +78,14 @@ type
 
 
   public
+
     { Public declarations }
     a:integer; s:string;
+
   end;
      type
   TSave = record
     FontColor : TColor;
-    FontStyle : TFontStyles;
-    BrColor : TColor;
   end;
   TMyThread = class(TThread)
     private
@@ -147,7 +130,35 @@ Var
   databuf: array[0..16,0..16] of string;    //Буфер для показа изменений
   stsum:array [0..15,0..15] of real; //Суммы изменений после пересчета
 
+    resourcestring
+      rsdiperror = 'Ошибка, выход за границы диапазона';
+      rsedpont = 'Редактирование значения';
+      rsenpont = 'Введите значение';
+      rschpont = 'Заменить значения?';
+      rshelpmsg = 'Программа предназначена для составления таблиц VE по логам.'+#13#10+#13#10+#13#10+
+'1*)Вам необходимо установить все коэфициенты наполнения на некое значение при котором Ваш автомобиль будет ехать'+#13#10+
+'(Это можно сделать прочитав eeprom сюда, выбрать значение, нажать заполнить, сохранить eeprom и залить в блок)'+#13#10+#13#10+
+'2)Затем запустить двигатель, дождаться пока включится Лямбда коррекция и записать лог файл(Не стоит ездить более 30 минут)'+#13#10+#13#10+
+'3)Останавливаем запись лога'+#13#10+#13#10+
+'4*)Запускаем VETune и в окне начальное значение записываем то наполнение на которое вы установили все графики в менеджере'+#13#10+#13#10+
+'5*)Нажимаем кнопку загрузить. Видим что все поля стали равны нашему наполнению'+#13#10+#13#10+
+'6)Нажимаем Файл-Открыть и выбираем наш лог, нажимаем Меню VE и открываем EEPROM'+#13#10+#13#10+
+'7)Как только лог файл подгрузился нажимаем Построить VE'+#13#10+#13#10+
+'8)Теперь у нас есть таблица наполнений построенная на основе лог файла. Сохраняем EEPROM'
++#13#10+#13#10+
+'После чего следует залить EEPROM обратно в блок Secu-3T и затем перейти к пункту (2)'
++#13#10+#13#10+#13#10+
+'Так же возможно просмотреть график наполнения как в менеджере и непосредственно на графике поправить некоторые точки.'
++#13#10+#13#10+#13#10+'*Пункт 1,4 и 5 выполняется только в случае первоначальной настройки.'
++#13#10+#13#10+#13#10+'Фиксация точек, что бы рассчет проводился во всех точках кроме отмеченных'
++#13#10+'Зажимаем Shift и кликаем левой кнопкой мыши по нужной ячейке. Загорелась синим-значит зафиксирована.'
++#13#10+'Снять фиксацию можно так же зажав шифт и нажав правую кнопку мыши на нужных уже зафиксированных ячейках';
+    rschname = ' - Изменено';
+    rsreedit = 'Этот Log Файл уже рассчитывался в этот EEPROM'+#13#10+'Продолжить выполнение операции?';
+    rsgr = 'Об.\Расх.';
+
 {$R *.dfm}
+
 
 (******************************************************************************)
 function AsToAc(arrChars: array of byte) : string;       //Перевод ASCII в ANSI
@@ -272,9 +283,9 @@ procedure TForm1.StringGrid2SelectCell(Sender: TObject; ACol, ARow: Integer;
   var CanSelect: Boolean);
   var poi:string;
 begin
-poi:=InputBox('Редактирование значения', 'Введите значение', StringGrid2.Cells[ACol,ARow]);
+poi:=InputBox(rsedpont, rsenpont, StringGrid2.Cells[ACol,ARow]);
 if (strtofloat(poi)<0) or (strtofloat(poi)>2) then
-MessageDlg('Ошибка, выход за границы диапазона',mtError, mbOKCancel, 0)
+MessageDlg(rsdiperror,mtError, mbOKCancel, 0)
 else
 StringGrid2.Cells[ACol,ARow] := poi;
 end;
@@ -332,7 +343,7 @@ iTmp:=17;
 stringGrid2.ColCount := iTmp;
 stringGrid2.RowCount := iTmp;
    //Загружаем в листинг список значений из edit1
-buttonSelected:= MessageDlg('Заменить значения?',mtInformation, [mbYes,mbCancel], 0);
+buttonSelected:= MessageDlg(rschpont,mtInformation, [mbYes,mbCancel], 0);
    if buttonSelected = mrYes    then begin
 for i:= 1 to iTmp do begin
     k:=1;
@@ -363,7 +374,7 @@ inc(k);
 end;
 except
 on E : Exception do
-      ShowMessage(E.ClassName+'Edit ошибка с сообщением : '+E.Message);
+      ShowMessage(E.ClassName+'Edit error with message : '+E.Message);
 end;
 end;
 
@@ -420,7 +431,7 @@ Until ( f <> buf_sz );
  CloseFile(boot);
 except
 on E : Exception do
-      ShowMessage(E.ClassName+'Reset ошибка с сообщением : '+E.Message);
+      ShowMessage(E.ClassName+'Reset error with message : '+E.Message);
 
 end;
 
@@ -435,7 +446,7 @@ inc(k);
 end;
 except
 on E : Exception do
-      ShowMessage(E.ClassName+'STRGRD ошибка с сообщением : '+E.Message);
+      ShowMessage(E.ClassName+'STRGRD error with message : '+E.Message);
 end;
 try
 hexname:='';
@@ -445,7 +456,7 @@ end;
 Form1.EEPROM1.caption:='EEPROM: '+ExtractFileName(s)+' - '+hexname;
   except
 on E : Exception do
-      ShowMessage(E.ClassName+'AstoAC ошибка с сообщением : '+E.Message);
+      ShowMessage(E.ClassName+'AstoAC error with message : '+E.Message);
 end;
 (**********Очистка переменных*********)
 f:=0;
@@ -625,7 +636,7 @@ OpenDialog1.Filter := 'Secu3 Logfile|*.csv|';
 //Обработчик события СОЗДАНИЯ ФОРМЫ
 //Записываем разметку stringGrid2
 //разметка строк
-stringGrid2.Cells[0,0]:='Об.\Расх.';
+stringGrid2.Cells[0,0]:=rsgr;
 j:=1;
 for i:= 1 to 16 do begin
     k:=0;
@@ -648,24 +659,7 @@ end;
 
 procedure TForm1.Help1Click(Sender: TObject);
 begin
-Showmessage('Программа предназначена для составления таблиц VE по логам.'+#13#10+#13#10+#13#10+
-'1*)Вам необходимо установить все коэфициенты наполнения на некое значение при котором Ваш автомобиль будет ехать'+#13#10+
-'(Это можно сделать прочитав eeprom сюда, выбрать значение, нажать заполнить, сохранить eeprom и залить в блок)'+#13#10+#13#10+
-'2)Затем запустить двигатель, дождаться пока включится Лямбда коррекция и записать лог файл(Не стоит ездить более 30 минут)'+#13#10+#13#10+
-'3)Останавливаем запись лога'+#13#10+#13#10+
-'4*)Запускаем VETune и в окне начальное значение записываем то наполнение на которое вы установили все графики в менеджере'+#13#10+#13#10+
-'5*)Нажимаем кнопку загрузить. Видим что все поля стали равны нашему наполнению'+#13#10+#13#10+
-'6)Нажимаем Файл-Открыть и выбираем наш лог, нажимаем Меню VE и открываем EEPROM'+#13#10+#13#10+
-'7)Как только лог файл подгрузился нажимаем Построить VE'+#13#10+#13#10+
-'8)Теперь у нас есть таблица наполнений построенная на основе лог файла. Сохраняем EEPROM'
-+#13#10+#13#10+
-'После чего следует залить EEPROM обратно в блок Secu-3T и затем перейти к пункту (2)'
-+#13#10+#13#10+#13#10+
-'Так же возможно просмотреть график наполнения как в менеджере и непосредственно на графике поправить некоторые точки.'
-+#13#10+#13#10+#13#10+'*Пункт 1,4 и 5 выполняется только в случае первоначальной настройки.'
-+#13#10+#13#10+#13#10+'Фиксация точек, что бы рассчет проводился во всех точках кроме отмеченных'
-+#13#10+'Зажимаем Shift и кликаем левой кнопкой мыши по нужной ячейке. Загорелась синим-значит зафиксирована.'
-+#13#10+'Снять фиксацию можно так же зажав шифт и нажав правую кнопку мыши на нужных уже зафиксированных ячейках');
+Showmessage(rshelpmsg);
 end;
 (******************************************************************************)
 procedure TForm1.N3DPlot1Click(Sender: TObject);
@@ -731,7 +725,7 @@ Form1.Caption:='VE LogTuner';
  s.free;k.Free;
  except
     on E : Exception do
-      ShowMessage(E.ClassName+' ошибка с сообщением =) : '+E.Message);
+      ShowMessage(E.ClassName+' error with message =) : '+E.Message);
        end;
 end;
 
@@ -840,7 +834,7 @@ if not (sr1[i-2]=0) and (Flag<>4) then begin
   zn:=strtofloat(form1.stringGrid2.Cells[k,i-1])+sr1[i-2];
   znac:=floattostrf(zn,fffixed,3,2);
      if (zn<0) or (zn>2)then begin
-        MessageDlg('Ошибка, выход за границы диапазона',mtError, mbOKCancel, 0);
+        MessageDlg(rsdiperror,mtError, mbOKCancel, 0);
            //Cells[i, j] := st;      //Оставлять старое значение
           form1.StringGrid2.Cells[k,i-1] := '0.00';         //Менять на 0
           form1.StringGrid2.Rows[i-1].Objects[k] := TObject(5);
@@ -913,7 +907,7 @@ with TIniFile.Create(ExtractFilePath(ParamStr(0)) + 'Config.ini') do
    lname:=TrimLeft(lname);
   end;
 if (pos(eename,ee)<>0) and (logname=lname) then
-buttonSelected:= MessageDlg('Этот Log Файл уже рассчитывался в этот EEPROM'+#13#10+'Продолжить выполнение операции?',mtInformation, [mbYes,mbCancel], 0)
+buttonSelected:= MessageDlg(rsreedit,mtInformation, [mbYes,mbCancel], 0)
 else buttonSelected := mrYes;
    if buttonSelected = mrYes    then begin
  OldCursor := Screen.Cursor;
@@ -924,10 +918,10 @@ if(length(data)>0 )then
     dk(i);
    except
     on E : Exception do
-      ShowMessage(E.ClassName+' ошибка с сообщением : '+E.Message+' переменная равна '+inttostr(i));
+      ShowMessage(E.ClassName+' error with message : '+E.Message+' переменная равна '+inttostr(i));
    end;
   Screen.Cursor := OldCursor;
-     form1.Caption:=form1.Caption+ ' - Изменено';
+     form1.Caption:=form1.Caption+ rschname;
      Button3.Enabled:=true;
      checkbox1.Enabled:=true;
      N6.Enabled:=true;
@@ -972,7 +966,7 @@ with StringGrid2 do
        begin
          Readln(f1, st);
          if (strtofloat(st)<0) or (strtofloat(st)>2)then begin
-         MessageDlg('Ошибка, выход за границы диапазона',mtError, mbOKCancel, 0);
+         MessageDlg(rsdiperror,mtError, mbOKCancel, 0);
          //Cells[i, j] := st;      //Оставлять старое значение
          Cells[i, j] := '0.00';         //Менять на 0
          Rows[j].Objects[i] := TObject(5);

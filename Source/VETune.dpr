@@ -6,7 +6,8 @@ uses
   Unit3 in 'Unit3.pas' {Form3},
   WindowThread in 'WindowThread.pas',
   Unit2 in 'Unit2.pas' {Form2},
-  Unit4 in 'Unit4.pas' {Form4};
+  Unit4 in 'Unit4.pas' {Form4},
+  reinit in 'reinit.pas';
 
 {$R *.res}
 

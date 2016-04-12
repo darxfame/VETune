@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="C:\WORK\Новая папка\VE Log Tuner v1.5\Debug\Win32\VETune.drc" source-language="ru-RU" target-language="en-US" datatype="cpp" tool="ETM v10.0" ts="C:\WORK\Новая папка\VE Log Tuner v1.5\Debug\Win32\VETune.drc">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">42380.9668518519</prop>
+        <prop prop-type="OrigDateTime">42380.9668518519</prop>
+        <prop prop-type="XlatDateTime">42380.9668518519</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">293</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="Consts_SWindowsVistaRequired" resname="Consts_SWindowsVistaRequired">
+        <source>"%s requires Windows Vista or later"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SXPThemesRequired" resname="Consts_SXPThemesRequired">
+        <source>"%s requires themes to be enabled"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_STaskDlgButtonCaption" resname="Consts_STaskDlgButtonCaption">
+        <source>"Button%d"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_STaskDlgRadioButtonCaption" resname="Consts_STaskDlgRadioButtonCaption">
+        <source>"RadioButton%d"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidTaskDlgButtonCaption" resname="Consts_SInvalidTaskDlgButtonCaption">
+        <source>"Caption cannot be empty"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcShift" resname="Consts_SmkcShift">
+        <source>"Shift+"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcCtrl" resname="Consts_SmkcCtrl">
+        <source>"Ctrl+"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcAlt" resname="Consts_SmkcAlt">
+        <source>"Alt+"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SOutOfRange" resname="Consts_SOutOfRange">
+        <source>"Value must be between %d and %d"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_sAllFilter" resname="Consts_sAllFilter">
+        <source>"All"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidClipFmt" resname="Consts_SInvalidClipFmt">
+        <source>"Invalid clipboard format"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SIconToClipboard" resname="Consts_SIconToClipboard">
+        <source>"Clipboard does not support Icons"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SCannotOpenClipboard" resname="Consts_SCannotOpenClipboard">
+        <source>"Cannot open clipboard: %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidPrinterOp" resname="Consts_SInvalidPrinterOp">
+        <source>"Operation not supported on selected printer"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541551</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SNoDefaultPrinter" resname="Consts_SNoDefaultPrinter">
+        <source>"There is no default printer currently selected"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDuplicateMenus" resname="Consts_SDuplicateMenus">
+        <source>"Menu '%s' is already being used by another form"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDockedCtlNeedsName" resname="Consts_SDockedCtlNeedsName">
+        <source>"Docked control must have a name"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDockTreeRemoveError" resname="Consts_SDockTreeRemoveError">
+        <source>"Error removing control from dock tree"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDockZoneNotFound" resname="Consts_SDockZoneNotFound">
+        <source>" - Dock zone not found"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDockZoneHasNoCtl" resname="Consts_SDockZoneHasNoCtl">
+        <source>" - Dock zone has no control"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDockZoneVersionConflict" resname="Consts_SDockZoneVersionConflict">
+        <source>"Error loading dock zone from the stream. Expecting version %d, but found %d."</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgClose" resname="Consts_SMsgDlgClose">
+        <source>"&amp;Close"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcBkSp" resname="Consts_SmkcBkSp">
+        <source>"BkSp"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcTab" resname="Consts_SmkcTab">
+        <source>"Tab"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcEsc" resname="Consts_SmkcEsc">
+        <source>"Esc"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcEnter" resname="Consts_SmkcEnter">
+        <source>"Enter"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcSpace" resname="Consts_SmkcSpace">
+        <source>"Space"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcPgUp" resname="Consts_SmkcPgUp">
+        <source>"PgUp"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcPgDn" resname="Consts_SmkcPgDn">
+        <source>"PgDn"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcEnd" resname="Consts_SmkcEnd">
+        <source>"End"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcHome" resname="Consts_SmkcHome">
+        <source>"Home"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcLeft" resname="Consts_SmkcLeft">
+        <source>"Left"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcUp" resname="Consts_SmkcUp">
+        <source>"Up"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcRight" resname="Consts_SmkcRight">
+        <source>"Right"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcDown" resname="Consts_SmkcDown">
+        <source>"Down"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcIns" resname="Consts_SmkcIns">
+        <source>"Ins"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SmkcDel" resname="Consts_SmkcDel">
+        <source>"Del"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMaskEditErr" resname="Consts_SMaskEditErr">
+        <source>"Invalid input value.  Use escape key to abandon changes"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgWarning" resname="Consts_SMsgDlgWarning">
+        <source>"Warning"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgError" resname="Consts_SMsgDlgError">
+        <source>"Error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgInformation" resname="Consts_SMsgDlgInformation">
+        <source>"Information"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgConfirm" resname="Consts_SMsgDlgConfirm">
+        <source>"Confirm"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgYes" resname="Consts_SMsgDlgYes">
+        <source>"&amp;Yes"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgNo" resname="Consts_SMsgDlgNo">
+        <source>"&amp;No"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgOK" resname="Consts_SMsgDlgOK">
+        <source>"OK"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgCancel" resname="Consts_SMsgDlgCancel">
+        <source>"Cancel"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgHelp" resname="Consts_SMsgDlgHelp">
+        <source>"&amp;Help"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgAbort" resname="Consts_SMsgDlgAbort">
+        <source>"&amp;Abort"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgRetry" resname="Consts_SMsgDlgRetry">
+        <source>"&amp;Retry"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgIgnore" resname="Consts_SMsgDlgIgnore">
+        <source>"&amp;Ignore"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgAll" resname="Consts_SMsgDlgAll">
+        <source>"&amp;All"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgNoToAll" resname="Consts_SMsgDlgNoToAll">
+        <source>"N&amp;o to All"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMsgDlgYesToAll" resname="Consts_SMsgDlgYesToAll">
+        <source>"Yes to &amp;All"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SRetryButton" resname="Consts_SRetryButton">
+        <source>"&amp;Retry"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SAbortButton" resname="Consts_SAbortButton">
+        <source>"Abort"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SAllButton" resname="Consts_SAllButton">
+        <source>"&amp;All"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SCannotDragForm" resname="Consts_SCannotDragForm">
+        <source>"Cannot drag a form"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SVMetafiles" resname="Consts_SVMetafiles">
+        <source>"Metafiles"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SVEnhMetafiles" resname="Consts_SVEnhMetafiles">
+        <source>"Enhanced Metafiles"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SVIcons" resname="Consts_SVIcons">
+        <source>"Icons"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SVBitmaps" resname="Consts_SVBitmaps">
+        <source>"Bitmaps"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SVTIFFImages" resname="Consts_SVTIFFImages">
+        <source>"TIFF Images"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SGridTooLarge" resname="Consts_SGridTooLarge">
+        <source>"Grid too large for operation"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_STooManyDeleted" resname="Consts_STooManyDeleted">
+        <source>"Too many rows or columns deleted"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SIndexOutOfRange" resname="Consts_SIndexOutOfRange">
+        <source>"Grid index out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SFixedColTooBig" resname="Consts_SFixedColTooBig">
+        <source>"Fixed column count must be less than column count"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SFixedRowTooBig" resname="Consts_SFixedRowTooBig">
+        <source>"Fixed row count must be less than row count"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidStringGridOp" resname="Consts_SInvalidStringGridOp">
+        <source>"Cannot insert or delete rows from grid"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMaskErr" resname="Consts_SMaskErr">
+        <source>"Invalid input value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541667</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SNotPrinting" resname="Consts_SNotPrinting">
+        <source>"Printer is not currently printing"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SPrinting" resname="Consts_SPrinting">
+        <source>"Printing in progress"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SPrinterIndexError" resname="Consts_SPrinterIndexError">
+        <source>"Printer index out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidPrinter" resname="Consts_SInvalidPrinter">
+        <source>"Printer selected is not valid"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SDeviceOnPort" resname="Consts_SDeviceOnPort">
+        <source>"%s on %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SGroupIndexTooLow" resname="Consts_SGroupIndexTooLow">
+        <source>"GroupIndex cannot be less than a previous menu item's GroupIndex"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SNoMDIForm" resname="Consts_SNoMDIForm">
+        <source>"Cannot create form. No MDI forms are currently active"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SImageCanvasNeedsBitmap" resname="Consts_SImageCanvasNeedsBitmap">
+        <source>"Can only modify an image if it contains a bitmap"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SControlParentSetToSelf" resname="Consts_SControlParentSetToSelf">
+        <source>"A control cannot have itself as its parent"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SOKButton" resname="Consts_SOKButton">
+        <source>"OK"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SCancelButton" resname="Consts_SCancelButton">
+        <source>"Cancel"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SYesButton" resname="Consts_SYesButton">
+        <source>"&amp;Yes"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SNoButton" resname="Consts_SNoButton">
+        <source>"&amp;No"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SHelpButton" resname="Consts_SHelpButton">
+        <source>"&amp;Help"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SCloseButton" resname="Consts_SCloseButton">
+        <source>"&amp;Close"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SIgnoreButton" resname="Consts_SIgnoreButton">
+        <source>"&amp;Ignore"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SImageReadFail" resname="Consts_SImageReadFail">
+        <source>"Failed to read ImageList data from stream"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SImageWriteFail" resname="Consts_SImageWriteFail">
+        <source>"Failed to write ImageList data to stream"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SWindowDCError" resname="Consts_SWindowDCError">
+        <source>"Error creating window device context"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SWindowClass" resname="Consts_SWindowClass">
+        <source>"Error creating window class"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SCannotFocus" resname="Consts_SCannotFocus">
+        <source>"Cannot focus a disabled or invisible window"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SParentRequired" resname="Consts_SParentRequired">
+        <source>"Control '%s' has no parent window"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SParentGivenNotAParent" resname="Consts_SParentGivenNotAParent">
+        <source>"Parent given is not a parent of '%s'"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMDIChildNotVisible" resname="Consts_SMDIChildNotVisible">
+        <source>"Cannot hide an MDI Child Form"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SVisibleChanged" resname="Consts_SVisibleChanged">
+        <source>"Cannot change Visible in OnShow or OnHide"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SCannotShowModal" resname="Consts_SCannotShowModal">
+        <source>"Cannot make a visible window modal"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SScrollBarRange" resname="Consts_SScrollBarRange">
+        <source>"Scrollbar property out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SPropertyOutOfRange" resname="Consts_SPropertyOutOfRange">
+        <source>"%s property out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMenuIndexError" resname="Consts_SMenuIndexError">
+        <source>"Menu index out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMenuReinserted" resname="Consts_SMenuReinserted">
+        <source>"Menu inserted twice"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SMenuNotFound" resname="Consts_SMenuNotFound">
+        <source>"Sub-menu is not in menu"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SNoTimers" resname="Consts_SNoTimers">
+        <source>"Not enough timers available"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidBitmap" resname="Consts_SInvalidBitmap">
+        <source>"Bitmap image is not valid"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidIcon" resname="Consts_SInvalidIcon">
+        <source>"Icon image is not valid"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidMetafile" resname="Consts_SInvalidMetafile">
+        <source>"Metafile is not valid"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidPixelFormat" resname="Consts_SInvalidPixelFormat">
+        <source>"Invalid pixel format"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidImage" resname="Consts_SInvalidImage">
+        <source>"Invalid image"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SScanLine" resname="Consts_SScanLine">
+        <source>"Scan line index out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SChangeIconSize" resname="Consts_SChangeIconSize">
+        <source>"Cannot change the size of an icon"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SChangeWicSize" resname="Consts_SChangeWicSize">
+        <source>"Cannot change the size of a WIC Image"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SUnknownExtension" resname="Consts_SUnknownExtension">
+        <source>"Unknown picture file extension (.%s)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SUnknownClipboardFormat" resname="Consts_SUnknownClipboardFormat">
+        <source>"Unsupported clipboard format"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SOutOfResources" resname="Consts_SOutOfResources">
+        <source>"Out of system resources"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SNoCanvasHandle" resname="Consts_SNoCanvasHandle">
+        <source>"Canvas does not allow drawing"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidImageSize" resname="Consts_SInvalidImageSize">
+        <source>"Invalid image size"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SInvalidImageList" resname="Consts_SInvalidImageList">
+        <source>"Invalid ImageList"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SReplaceImage" resname="Consts_SReplaceImage">
+        <source>"Unable to Replace Image"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="Consts_SImageIndexError" resname="Consts_SImageIndexError">
+        <source>"Invalid ImageList Index"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SFileNotFound" resname="RTLConsts_SFileNotFound">
+        <source>"The specified file was not found"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_hNoFilterViewer" resname="RTLConsts_hNoFilterViewer">
+        <source>"No help viewer that supports filters"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_sInvalidStringAndObjectArrays" resname="RTLConsts_sInvalidStringAndObjectArrays">
+        <source>"Length of Strings and Objects arrays must be equal"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_sInvalidTimeoutValue" resname="RTLConsts_sInvalidTimeoutValue">
+        <source>"Invalid Timeout value: %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidDate" resname="RTLConsts_SInvalidDate">
+        <source>"''%s'' is not a valid date"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidDateTime" resname="RTLConsts_SInvalidDateTime">
+        <source>"''%s'' is not a valid date and time"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidInteger" resname="RTLConsts_SInvalidInteger">
+        <source>"''%s'' is not a valid integer value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541782</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidTime" resname="RTLConsts_SInvalidTime">
+        <source>"''%s'' is not a valid time"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_STimeEncodeError" resname="RTLConsts_STimeEncodeError">
+        <source>"Invalid argument to time encode"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoContext" resname="RTLConsts_SNoContext">
+        <source>"No context-sensitive help installed"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoContextFound" resname="RTLConsts_SNoContextFound">
+        <source>"No help found for context %d"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoIndex" resname="RTLConsts_SNoIndex">
+        <source>"Unable to open Index"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoSearch" resname="RTLConsts_SNoSearch">
+        <source>"Unable to open Search"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoTableOfContents" resname="RTLConsts_SNoTableOfContents">
+        <source>"Unable to find a Table of Contents"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoTopics" resname="RTLConsts_SNoTopics">
+        <source>"No topic-based help system installed"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNothingFound" resname="RTLConsts_SNothingFound">
+        <source>"No help found for %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SUnknownGroup" resname="RTLConsts_SUnknownGroup">
+        <source>"%s not in a class registration group"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SUnknownProperty" resname="RTLConsts_SUnknownProperty">
+        <source>"Property %s does not exist"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SWriteError" resname="RTLConsts_SWriteError">
+        <source>"Stream write error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadCreateError" resname="RTLConsts_SThreadCreateError">
+        <source>"Thread creation error: %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadError" resname="RTLConsts_SThreadError">
+        <source>"Thread Error: %s (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadExternalTerminate" resname="RTLConsts_SThreadExternalTerminate">
+        <source>"Cannot terminate an externally created thread"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadExternalWait" resname="RTLConsts_SThreadExternalWait">
+        <source>"Cannot wait for an externally created thread"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadStartError" resname="RTLConsts_SThreadStartError">
+        <source>"Cannot call Start on a running or suspended thread"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadExternalCheckTerminated" resname="RTLConsts_SThreadExternalCheckTerminated">
+        <source>"Cannot call CheckTerminated on an externally created thread"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SThreadExternalSetReturnValue" resname="RTLConsts_SThreadExternalSetReturnValue">
+        <source>"Cannot call SetReturnValue on an externally create thread"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SParamIsNegative" resname="RTLConsts_SParamIsNegative">
+        <source>"Parameter %s cannot be a negative value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInputBufferExceed" resname="RTLConsts_SInputBufferExceed">
+        <source>"Input buffer exceeded for %s = %d, %s = %d"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidCharsInPath" resname="RTLConsts_SInvalidCharsInPath">
+        <source>"Invalid characters in path"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SPathTooLong" resname="RTLConsts_SPathTooLong">
+        <source>"The specified path is too long"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SPathNotFound" resname="RTLConsts_SPathNotFound">
+        <source>"The specified path was not found"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SPathFormatNotSupported" resname="RTLConsts_SPathFormatNotSupported">
+        <source>"The path format is not supported"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidPropertyValue" resname="RTLConsts_SInvalidPropertyValue">
+        <source>"Invalid property value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidRegType" resname="RTLConsts_SInvalidRegType">
+        <source>"Invalid data type for '%s'"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SListCapacityError" resname="RTLConsts_SListCapacityError">
+        <source>"List capacity out of bounds (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SListCountError" resname="RTLConsts_SListCountError">
+        <source>"List count out of bounds (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SListIndexError" resname="RTLConsts_SListIndexError">
+        <source>"List index out of bounds (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SMemoryStreamError" resname="RTLConsts_SMemoryStreamError">
+        <source>"Out of memory while expanding memory stream"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SNoComSupport" resname="RTLConsts_SNoComSupport">
+        <source>"%s has not been registered as a COM class"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SPropertyException" resname="RTLConsts_SPropertyException">
+        <source>"Error reading %s%s%s: %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SReadError" resname="RTLConsts_SReadError">
+        <source>"Stream read error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SReadOnlyProperty" resname="RTLConsts_SReadOnlyProperty">
+        <source>"Property is read-only"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SRegCreateFailed" resname="RTLConsts_SRegCreateFailed">
+        <source>"Failed to create key %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SRegGetDataFailed" resname="RTLConsts_SRegGetDataFailed">
+        <source>"Failed to get data for '%s'"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SRegSetDataFailed" resname="RTLConsts_SRegSetDataFailed">
+        <source>"Failed to set data for '%s'"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SResNotFound" resname="RTLConsts_SResNotFound">
+        <source>"Resource %s not found"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SSeekNotImplemented" resname="RTLConsts_SSeekNotImplemented">
+        <source>"%s.Seek not implemented"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SSortedListError" resname="RTLConsts_SSortedListError">
+        <source>"Operation not allowed on sorted list"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SBitsIndexError" resname="RTLConsts_SBitsIndexError">
+        <source>"Bits index out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SCantWriteResourceStreamError" resname="RTLConsts_SCantWriteResourceStreamError">
+        <source>"Can't write to a read-only resource stream"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SCheckSynchronizeError" resname="RTLConsts_SCheckSynchronizeError">
+        <source>"CheckSynchronize called from thread $%x, which is NOT the main thread"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SClassNotFound" resname="RTLConsts_SClassNotFound">
+        <source>"Class %s not found"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SDuplicateClass" resname="RTLConsts_SDuplicateClass">
+        <source>"A class named %s already exists"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SDuplicateItem" resname="RTLConsts_SDuplicateItem">
+        <source>"List does not allow duplicates ($0%x)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SDuplicateName" resname="RTLConsts_SDuplicateName">
+        <source>"A component named %s already exists"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SDuplicateString" resname="RTLConsts_SDuplicateString">
+        <source>"String list does not allow duplicates"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SFCreateErrorEx" resname="RTLConsts_SFCreateErrorEx">
+        <source>"Cannot create file \"%s\". %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SFOpenErrorEx" resname="RTLConsts_SFOpenErrorEx">
+        <source>"Cannot open file \"%s\". %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SIniFileWriteError" resname="RTLConsts_SIniFileWriteError">
+        <source>"Unable to write to %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidFileName" resname="RTLConsts_SInvalidFileName">
+        <source>"Invalid file name - %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidImage" resname="RTLConsts_SInvalidImage">
+        <source>"Invalid stream format"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668541898</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidName" resname="RTLConsts_SInvalidName">
+        <source>"''%s'' is not a valid component name"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidProperty" resname="RTLConsts_SInvalidProperty">
+        <source>"Invalid property value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SInvalidPropertyPath" resname="RTLConsts_SInvalidPropertyPath">
+        <source>"Invalid property path"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameMon" resname="SysConst_SLongDayNameMon">
+        <source>"Monday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameTue" resname="SysConst_SLongDayNameTue">
+        <source>"Tuesday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameWed" resname="SysConst_SLongDayNameWed">
+        <source>"Wednesday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameThu" resname="SysConst_SLongDayNameThu">
+        <source>"Thursday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameFri" resname="SysConst_SLongDayNameFri">
+        <source>"Friday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameSat" resname="SysConst_SLongDayNameSat">
+        <source>"Saturday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidSourceArray" resname="SysConst_SInvalidSourceArray">
+        <source>"Invalid source array"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidDestinationArray" resname="SysConst_SInvalidDestinationArray">
+        <source>"Invalid destination array"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SCharIndexOutOfBounds" resname="SysConst_SCharIndexOutOfBounds">
+        <source>"Character index out of bounds (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SByteIndexOutOfBounds" resname="SysConst_SByteIndexOutOfBounds">
+        <source>"Start index out of bounds (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidCharCount" resname="SysConst_SInvalidCharCount">
+        <source>"Invalid count (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidDestinationIndex" resname="SysConst_SInvalidDestinationIndex">
+        <source>"Invalid destination index (%d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidCodePage" resname="SysConst_SInvalidCodePage">
+        <source>"Invalid code page"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidEncodingName" resname="SysConst_SInvalidEncodingName">
+        <source>"Invalid encoding name"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SAncestorNotFound" resname="RTLConsts_SAncestorNotFound">
+        <source>"Ancestor for '%s' not found"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="RTLConsts_SAssignError" resname="RTLConsts_SAssignError">
+        <source>"Cannot assign a %s to a %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameMay" resname="SysConst_SLongMonthNameMay">
+        <source>"May"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameJun" resname="SysConst_SLongMonthNameJun">
+        <source>"June"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameJul" resname="SysConst_SLongMonthNameJul">
+        <source>"July"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameAug" resname="SysConst_SLongMonthNameAug">
+        <source>"August"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameSep" resname="SysConst_SLongMonthNameSep">
+        <source>"September"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameOct" resname="SysConst_SLongMonthNameOct">
+        <source>"October"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameNov" resname="SysConst_SLongMonthNameNov">
+        <source>"November"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameDec" resname="SysConst_SLongMonthNameDec">
+        <source>"December"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameSun" resname="SysConst_SShortDayNameSun">
+        <source>"Sun"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameMon" resname="SysConst_SShortDayNameMon">
+        <source>"Mon"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameTue" resname="SysConst_SShortDayNameTue">
+        <source>"Tue"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameWed" resname="SysConst_SShortDayNameWed">
+        <source>"Wed"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameThu" resname="SysConst_SShortDayNameThu">
+        <source>"Thu"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameFri" resname="SysConst_SShortDayNameFri">
+        <source>"Fri"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortDayNameSat" resname="SysConst_SShortDayNameSat">
+        <source>"Sat"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongDayNameSun" resname="SysConst_SLongDayNameSun">
+        <source>"Sunday"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameJan" resname="SysConst_SShortMonthNameJan">
+        <source>"Jan"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameFeb" resname="SysConst_SShortMonthNameFeb">
+        <source>"Feb"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameMar" resname="SysConst_SShortMonthNameMar">
+        <source>"Mar"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameApr" resname="SysConst_SShortMonthNameApr">
+        <source>"Apr"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameMay" resname="SysConst_SShortMonthNameMay">
+        <source>"May"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameJun" resname="SysConst_SShortMonthNameJun">
+        <source>"Jun"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameJul" resname="SysConst_SShortMonthNameJul">
+        <source>"Jul"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameAug" resname="SysConst_SShortMonthNameAug">
+        <source>"Aug"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameSep" resname="SysConst_SShortMonthNameSep">
+        <source>"Sep"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameOct" resname="SysConst_SShortMonthNameOct">
+        <source>"Oct"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameNov" resname="SysConst_SShortMonthNameNov">
+        <source>"Nov"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SShortMonthNameDec" resname="SysConst_SShortMonthNameDec">
+        <source>"Dec"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameJan" resname="SysConst_SLongMonthNameJan">
+        <source>"January"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameFeb" resname="SysConst_SLongMonthNameFeb">
+        <source>"February"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameMar" resname="SysConst_SLongMonthNameMar">
+        <source>"March"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SLongMonthNameApr" resname="SysConst_SLongMonthNameApr">
+        <source>"April"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarInvalid" resname="SysConst_SVarInvalid">
+        <source>"Invalid argument"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarBadType" resname="SysConst_SVarBadType">
+        <source>"Invalid variant type"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarNotImplemented" resname="SysConst_SVarNotImplemented">
+        <source>"Operation not supported"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarUnexpected" resname="SysConst_SVarUnexpected">
+        <source>"Unexpected variant error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542014</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SExternalException" resname="SysConst_SExternalException">
+        <source>"External exception %x"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SAssertionFailed" resname="SysConst_SAssertionFailed">
+        <source>"Assertion failed"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SIntfCastError" resname="SysConst_SIntfCastError">
+        <source>"Interface not supported"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SSafecallException" resname="SysConst_SSafecallException">
+        <source>"Exception in safecall method"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SMonitorLockException" resname="SysConst_SMonitorLockException">
+        <source>"Object lock not owned"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SNoMonitorSupportException" resname="SysConst_SNoMonitorSupportException">
+        <source>"Monitor support function not initialized"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SNotImplemented" resname="SysConst_SNotImplemented">
+        <source>"Feature not implemented"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SAssertError" resname="SysConst_SAssertError">
+        <source>"%s (%s, line %d)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SAbstractError" resname="SysConst_SAbstractError">
+        <source>"Abstract Error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SModuleAccessViolation" resname="SysConst_SModuleAccessViolation">
+        <source>"Access violation at address %p in module '%s'. %s of address %p"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SOSError" resname="SysConst_SOSError">
+        <source>"System Error.  Code: %d.\r\n%s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SUnkOSError" resname="SysConst_SUnkOSError">
+        <source>"A call to an OS function failed"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SWriteAccess" resname="SysConst_SWriteAccess">
+        <source>"Write"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SFormatTooLong" resname="SysConst_SFormatTooLong">
+        <source>"Format string too long"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarArrayCreate" resname="SysConst_SVarArrayCreate">
+        <source>"Error creating variant or safe array"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarArrayBounds" resname="SysConst_SVarArrayBounds">
+        <source>"Variant or safe array index out of bounds"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarArrayLocked" resname="SysConst_SVarArrayLocked">
+        <source>"Variant or safe array is locked"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidVarCast" resname="SysConst_SInvalidVarCast">
+        <source>"Invalid variant type conversion"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidVarOp" resname="SysConst_SInvalidVarOp">
+        <source>"Invalid variant operation"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidVarNullOp" resname="SysConst_SInvalidVarNullOp">
+        <source>"Invalid NULL variant operation"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidVarOpWithHResultWithPrefix" resname="SysConst_SInvalidVarOpWithHResultWithPrefix">
+        <source>"Invalid variant operation (%s%.8x)\n%s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarTypeOutOfRangeWithPrefix" resname="SysConst_SVarTypeOutOfRangeWithPrefix">
+        <source>"Custom variant type (%s%.4x) is out of range"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarTypeAlreadyUsedWithPrefix" resname="SysConst_SVarTypeAlreadyUsedWithPrefix">
+        <source>"Custom variant type (%s%.4x) already used by %s"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarTypeNotUsableWithPrefix" resname="SysConst_SVarTypeNotUsableWithPrefix">
+        <source>"Custom variant type (%s%.4x) is not usable"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarTypeTooManyCustom" resname="SysConst_SVarTypeTooManyCustom">
+        <source>"Too many custom variant types have been registered"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarTypeCouldNotConvert" resname="SysConst_SVarTypeCouldNotConvert">
+        <source>"Could not convert variant of type (%s) into type (%s)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarTypeConvertOverflow" resname="SysConst_SVarTypeConvertOverflow">
+        <source>"Overflow while converting variant of type (%s) into type (%s)"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SVarOverflow" resname="SysConst_SVarOverflow">
+        <source>"Variant overflow"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SOverflow" resname="SysConst_SOverflow">
+        <source>"Floating point overflow"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SUnderflow" resname="SysConst_SUnderflow">
+        <source>"Floating point underflow"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidPointer" resname="SysConst_SInvalidPointer">
+        <source>"Invalid pointer operation"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidCast" resname="SysConst_SInvalidCast">
+        <source>"Invalid class typecast"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SAccessViolationArg3" resname="SysConst_SAccessViolationArg3">
+        <source>"Access violation at address %p. %s of address %p"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SAccessViolationNoArg" resname="SysConst_SAccessViolationNoArg">
+        <source>"Access violation"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SStackOverflow" resname="SysConst_SStackOverflow">
+        <source>"Stack overflow"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SControlC" resname="SysConst_SControlC">
+        <source>"Control-C hit"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SPrivilege" resname="SysConst_SPrivilege">
+        <source>"Privileged instruction"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SOperationAborted" resname="SysConst_SOperationAborted">
+        <source>"Operation aborted"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SException" resname="SysConst_SException">
+        <source>"Exception %s in module %s at %p.\r\n%s%s\r\n"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SExceptTitle" resname="SysConst_SExceptTitle">
+        <source>"Application Error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidFormat" resname="SysConst_SInvalidFormat">
+        <source>"Format '%s' invalid or incompatible with argument"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SArgumentMissing" resname="SysConst_SArgumentMissing">
+        <source>"No argument for format '%s'"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SDispatchError" resname="SysConst_SDispatchError">
+        <source>"Variant method calls not supported"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SReadAccess" resname="SysConst_SReadAccess">
+        <source>"Read"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidFloat" resname="SysConst_SInvalidFloat">
+        <source>"'%s' is not a valid floating point value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidTimeStamp" resname="SysConst_SInvalidTimeStamp">
+        <source>"'%d.%d' is not a valid timestamp"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidGUID" resname="SysConst_SInvalidGUID">
+        <source>"'%s' is not a valid GUID value"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SDateEncodeError" resname="SysConst_SDateEncodeError">
+        <source>"Invalid argument to date encode"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SOutOfMemory" resname="SysConst_SOutOfMemory">
+        <source>"Out of memory"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInOutError" resname="SysConst_SInOutError">
+        <source>"I/O error %d"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_STooManyOpenFiles" resname="SysConst_STooManyOpenFiles">
+        <source>"Too many open files"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SAccessDenied" resname="SysConst_SAccessDenied">
+        <source>"File access denied"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SEndOfFile" resname="SysConst_SEndOfFile">
+        <source>"Read beyond end of file"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SDiskFull" resname="SysConst_SDiskFull">
+        <source>"Disk full"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidInput" resname="SysConst_SInvalidInput">
+        <source>"Invalid numeric input"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.966854213</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SDivByZero" resname="SysConst_SDivByZero">
+        <source>"Division by zero"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542245</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SRangeError" resname="SysConst_SRangeError">
+        <source>"Range check error"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542245</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SIntOverflow" resname="SysConst_SIntOverflow">
+        <source>"Integer overflow"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542245</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SInvalidOp" resname="SysConst_SInvalidOp">
+        <source>"Invalid floating point operation"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542245</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="SysConst_SZeroDivide" resname="SysConst_SZeroDivide">
+        <source>"Floating point division by zero"</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">42380.9668542245</prop><prop prop-type="Status">0</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

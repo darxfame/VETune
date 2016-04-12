@@ -1,0 +1,1351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="C:\WORK\Новая папка\VE Log Tuner v1.5\Unit4.dfm" source-language="ru-RU" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="C:\WORK\Новая папка\VE Log Tuner v1.5\Unit4.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">42380.9764814815</prop>
+        <prop prop-type="OrigDateTime">42380.7338657407</prop>
+        <prop prop-type="XlatDateTime">42380.7338657407</prop>
+        <prop prop-type="Translated">3</prop>
+        <prop prop-type="UnTranslated">130</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:Form4.Left" resname="O:Form4.Left">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">0</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Top" resname="O:Form4.Top">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">1</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Caption" resname="O:Form4.Caption">
+        <source>'Редактирование сетки оборотов'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">1</prop>
+          <prop prop-type="Order">2</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+        <target>'Editing grid RPM'</target>
+      </trans-unit>
+      <trans-unit id="O:Form4.ClientHeight" resname="O:Form4.ClientHeight">
+        <source>67</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">3</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.ClientWidth" resname="O:Form4.ClientWidth">
+        <source>644</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">4</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Color" resname="O:Form4.Color">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">5</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Font.Charset" resname="O:Form4.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">6</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Font.Color" resname="O:Form4.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">7</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Font.Height" resname="O:Form4.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">8</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Font.Name" resname="O:Form4.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">9</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Font.Style" resname="O:Form4.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">10</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.OldCreateOrder" resname="O:Form4.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">11</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.Position" resname="O:Form4.Position">
+        <source>poDesktopCenter</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">12</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.OnCreate" resname="O:Form4.OnCreate">
+        <source>FormCreate</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">13</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.PixelsPerInch" resname="O:Form4.PixelsPerInch">
+        <source>96</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">14</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.TextHeight" resname="O:Form4.TextHeight">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">15</prop>
+          <prop prop-type="Type">TForm4</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.Left" resname="O:Form4.O:Button1.Left">
+        <source>15</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">16</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.Top" resname="O:Form4.O:Button1.Top">
+        <source>35</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">17</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.Width" resname="O:Form4.O:Button1.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">18</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.Height" resname="O:Form4.O:Button1.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">19</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.Caption" resname="O:Form4.O:Button1.Caption">
+        <source>'ОК'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">20</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.TabOrder" resname="O:Form4.O:Button1.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">21</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button1.OnClick" resname="O:Form4.O:Button1.OnClick">
+        <source>Button1Click</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">22</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.Left" resname="O:Form4.O:Button2.Left">
+        <source>111</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">23</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.Top" resname="O:Form4.O:Button2.Top">
+        <source>35</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">24</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.Width" resname="O:Form4.O:Button2.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">25</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.Height" resname="O:Form4.O:Button2.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">26</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.Caption" resname="O:Form4.O:Button2.Caption">
+        <source>'Отмена'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">1</prop>
+          <prop prop-type="Order">27</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+        <target>'Cancel'</target>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.TabOrder" resname="O:Form4.O:Button2.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">28</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button2.OnClick" resname="O:Form4.O:Button2.OnClick">
+        <source>Button2Click</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">29</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.Left" resname="O:Form4.O:Button3.Left">
+        <source>328</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">30</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.Top" resname="O:Form4.O:Button3.Top">
+        <source>35</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.966853125</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">31</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.Width" resname="O:Form4.O:Button3.Width">
+        <source>185</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">32</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.Height" resname="O:Form4.O:Button3.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">33</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.Caption" resname="O:Form4.O:Button3.Caption">
+        <source>'Вернуть стандартные значения'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">1</prop>
+          <prop prop-type="Order">34</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+        <target>'Restore defaults'</target>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.TabOrder" resname="O:Form4.O:Button3.TabOrder">
+        <source>2</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">35</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Button3.OnClick" resname="O:Form4.O:Button3.OnClick">
+        <source>Button3Click</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">36</prop>
+          <prop prop-type="Type">TButton</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit1.Left" resname="O:Form4.O:Edit1.Left">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">37</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit1.Top" resname="O:Form4.O:Edit1.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">38</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit1.Width" resname="O:Form4.O:Edit1.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">39</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit1.Height" resname="O:Form4.O:Edit1.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">40</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit1.TabOrder" resname="O:Form4.O:Edit1.TabOrder">
+        <source>3</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">41</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit1.Text" resname="O:Form4.O:Edit1.Text">
+        <source>'0600'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">42</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit2.Left" resname="O:Form4.O:Edit2.Left">
+        <source>55</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">43</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit2.Top" resname="O:Form4.O:Edit2.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">44</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit2.Width" resname="O:Form4.O:Edit2.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">45</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit2.Height" resname="O:Form4.O:Edit2.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">46</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit2.TabOrder" resname="O:Form4.O:Edit2.TabOrder">
+        <source>4</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">47</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit2.Text" resname="O:Form4.O:Edit2.Text">
+        <source>'0720'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">48</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit3.Left" resname="O:Form4.O:Edit3.Left">
+        <source>94</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">49</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit3.Top" resname="O:Form4.O:Edit3.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">50</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit3.Width" resname="O:Form4.O:Edit3.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">51</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit3.Height" resname="O:Form4.O:Edit3.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">52</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit3.TabOrder" resname="O:Form4.O:Edit3.TabOrder">
+        <source>5</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">53</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit3.Text" resname="O:Form4.O:Edit3.Text">
+        <source>'0840'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">54</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit4.Left" resname="O:Form4.O:Edit4.Left">
+        <source>133</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">55</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit4.Top" resname="O:Form4.O:Edit4.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">56</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit4.Width" resname="O:Form4.O:Edit4.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">57</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit4.Height" resname="O:Form4.O:Edit4.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">58</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit4.TabOrder" resname="O:Form4.O:Edit4.TabOrder">
+        <source>6</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">59</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit4.Text" resname="O:Form4.O:Edit4.Text">
+        <source>'0990'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">60</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit5.Left" resname="O:Form4.O:Edit5.Left">
+        <source>172</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">61</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit5.Top" resname="O:Form4.O:Edit5.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">62</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit5.Width" resname="O:Form4.O:Edit5.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">63</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit5.Height" resname="O:Form4.O:Edit5.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">64</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit5.TabOrder" resname="O:Form4.O:Edit5.TabOrder">
+        <source>7</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">65</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit5.Text" resname="O:Form4.O:Edit5.Text">
+        <source>'1170'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">66</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit6.Left" resname="O:Form4.O:Edit6.Left">
+        <source>211</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">67</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit6.Top" resname="O:Form4.O:Edit6.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">68</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit6.Width" resname="O:Form4.O:Edit6.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">69</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit6.Height" resname="O:Form4.O:Edit6.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">70</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit6.TabOrder" resname="O:Form4.O:Edit6.TabOrder">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">71</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit6.Text" resname="O:Form4.O:Edit6.Text">
+        <source>'1380'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">72</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit7.Left" resname="O:Form4.O:Edit7.Left">
+        <source>250</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531366</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">73</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit7.Top" resname="O:Form4.O:Edit7.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">74</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit7.Width" resname="O:Form4.O:Edit7.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">75</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit7.Height" resname="O:Form4.O:Edit7.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">76</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit7.TabOrder" resname="O:Form4.O:Edit7.TabOrder">
+        <source>9</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">77</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit7.Text" resname="O:Form4.O:Edit7.Text">
+        <source>'1650'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">78</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit8.Left" resname="O:Form4.O:Edit8.Left">
+        <source>289</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">79</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit8.Top" resname="O:Form4.O:Edit8.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">80</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit8.Width" resname="O:Form4.O:Edit8.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">81</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit8.Height" resname="O:Form4.O:Edit8.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">82</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit8.TabOrder" resname="O:Form4.O:Edit8.TabOrder">
+        <source>10</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">83</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit8.Text" resname="O:Form4.O:Edit8.Text">
+        <source>'1950'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">84</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit9.Left" resname="O:Form4.O:Edit9.Left">
+        <source>328</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">85</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit9.Top" resname="O:Form4.O:Edit9.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">86</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit9.Width" resname="O:Form4.O:Edit9.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">87</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit9.Height" resname="O:Form4.O:Edit9.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">88</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit9.TabOrder" resname="O:Form4.O:Edit9.TabOrder">
+        <source>11</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">89</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit9.Text" resname="O:Form4.O:Edit9.Text">
+        <source>'2310'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">90</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit10.Left" resname="O:Form4.O:Edit10.Left">
+        <source>367</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">91</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit10.Top" resname="O:Form4.O:Edit10.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">92</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit10.Width" resname="O:Form4.O:Edit10.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">93</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit10.Height" resname="O:Form4.O:Edit10.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">94</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit10.TabOrder" resname="O:Form4.O:Edit10.TabOrder">
+        <source>12</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">95</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit10.Text" resname="O:Form4.O:Edit10.Text">
+        <source>'2730'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">96</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit11.Left" resname="O:Form4.O:Edit11.Left">
+        <source>406</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">97</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit11.Top" resname="O:Form4.O:Edit11.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">98</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit11.Width" resname="O:Form4.O:Edit11.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">99</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit11.Height" resname="O:Form4.O:Edit11.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">100</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit11.TabOrder" resname="O:Form4.O:Edit11.TabOrder">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">101</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit11.Text" resname="O:Form4.O:Edit11.Text">
+        <source>'3210'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">102</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit12.Left" resname="O:Form4.O:Edit12.Left">
+        <source>445</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">103</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit12.Top" resname="O:Form4.O:Edit12.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">104</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit12.Width" resname="O:Form4.O:Edit12.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">105</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit12.Height" resname="O:Form4.O:Edit12.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">106</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit12.TabOrder" resname="O:Form4.O:Edit12.TabOrder">
+        <source>14</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">107</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit12.Text" resname="O:Form4.O:Edit12.Text">
+        <source>'3840'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">108</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit13.Left" resname="O:Form4.O:Edit13.Left">
+        <source>484</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">109</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit13.Top" resname="O:Form4.O:Edit13.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">110</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit13.Width" resname="O:Form4.O:Edit13.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">111</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit13.Height" resname="O:Form4.O:Edit13.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">112</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit13.TabOrder" resname="O:Form4.O:Edit13.TabOrder">
+        <source>15</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">113</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit13.Text" resname="O:Form4.O:Edit13.Text">
+        <source>'4530'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531482</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">114</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit14.Left" resname="O:Form4.O:Edit14.Left">
+        <source>523</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">115</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit14.Top" resname="O:Form4.O:Edit14.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">116</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit14.Width" resname="O:Form4.O:Edit14.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">117</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit14.Height" resname="O:Form4.O:Edit14.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">118</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit14.TabOrder" resname="O:Form4.O:Edit14.TabOrder">
+        <source>16</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">119</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit14.Text" resname="O:Form4.O:Edit14.Text">
+        <source>'5370'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">120</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit15.Left" resname="O:Form4.O:Edit15.Left">
+        <source>562</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">121</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit15.Top" resname="O:Form4.O:Edit15.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">122</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit15.Width" resname="O:Form4.O:Edit15.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">123</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit15.Height" resname="O:Form4.O:Edit15.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">124</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit15.TabOrder" resname="O:Form4.O:Edit15.TabOrder">
+        <source>17</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">125</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit15.Text" resname="O:Form4.O:Edit15.Text">
+        <source>'6360'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">126</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit16.Left" resname="O:Form4.O:Edit16.Left">
+        <source>601</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">127</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit16.Top" resname="O:Form4.O:Edit16.Top">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">128</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit16.Width" resname="O:Form4.O:Edit16.Width">
+        <source>33</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">129</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit16.Height" resname="O:Form4.O:Edit16.Height">
+        <source>21</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">130</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit16.TabOrder" resname="O:Form4.O:Edit16.TabOrder">
+        <source>18</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">131</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+      <trans-unit id="O:Form4.O:Edit16.Text" resname="O:Form4.O:Edit16.Text">
+        <source>'7500'</source>
+        <prop-group name="ITEFieldProp">
+          <prop prop-type="Created">42380.9668531597</prop>
+          <prop prop-type="Status">0</prop>
+          <prop prop-type="Order">132</prop>
+          <prop prop-type="Type">TEdit</prop>
+          <prop prop-type="Localize">1</prop>
+        </prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

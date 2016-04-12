@@ -1,20 +1,3 @@
-{ VETune and VEOnline  - An open source, free editor engine tables unit
-   Copyright (C) 2015 Artem E. Kochegizov. Russia, Moscow
-   This program is free software: you can redistribute it and/or modify
-   it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
-   You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.
-   contacts:
-              http://secu-3.org
-              email: akochegizov@gmail.com
-}
-
 unit Unit3;
 
 interface
@@ -96,6 +79,13 @@ var
  taSmooth = array [0..1023] of Double;
 implementation
 
+resourcestring
+rsrpm= 'Обороты';
+rsrash = 'Расходы';
+rskoef = 'Коэфициент';
+rsproc = 'Проценты';
+rshelp = 'Для редактирования точек зажмите Ctrl,левую кнопку мыши и тащите точку';
+
 {$R *.dfm}
 (******************************************************************************)
 Function Smooth (MaxI: SmallInt; Level: tSmoothLevel; Yi: taSmooth): taSmooth;
@@ -166,9 +156,9 @@ rcout:=form1.stringGrid2.rowcount;
 
 Plot3D1.GridMat.Resize(rcout,rcout);
 Plot3D1.SetRange (1, 16, loy, hiy, 0, 1.4);
-Plot3D1.CaptionX:='Расходы';
-Plot3D1.CaptionY:='Обороты';
-Plot3D1.CaptionZ:='Коэфициент';
+Plot3D1.CaptionX:=rsrash;
+Plot3D1.CaptionY:=rsrpm;
+Plot3D1.CaptionZ:=rskoef;
 e:=1;
 while e<form1.StringGrid2.ColCount do
   for j := 1 to form1.StringGrid2.RowCount-1 do
@@ -193,7 +183,7 @@ for i:=1 to form1.StringGrid2.ColCount-1 do
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         with Chart1 do
   begin
-Label1.Caption:='Расход:';
+Label1.Caption:=rsrash+':';
 Label2.Caption:=inttostr(rash1.Position);
 label2.left:=107;
 rash1.Min:=1;
@@ -207,10 +197,10 @@ rash1.Max:=16;
 
    UndoZoom;//востанавливаем исходный масштаб
    Title.Text.Clear;
-   Title.Text.Add('Расход '+inttostr(form3.rash1.Position));//GRAPHIC
+   Title.Text.Add(rsrash+' '+inttostr(form3.rash1.Position));//GRAPHIC
    LeftAxis.AxisValuesFormat := '0.##';//
-   BottomAxis.Title.Caption  := 'Обороты';//подписываем X
-   LeftAxis.Title.Caption    := 'Проценты';//подписываем Y
+   BottomAxis.Title.Caption  := rsrpm;//подписываем X
+   LeftAxis.Title.Caption    := rsproc;//подписываем Y
    Repaint;
   end;
 
@@ -265,7 +255,7 @@ Series2.Title := ''; //
   begin
  if rcout=15 then  rash1.max:=14;
 if rcout=17 then  rash1.max:=16;
-Label1.Caption:='Обороты:';
+Label1.Caption:=rsrpm+':';
 label2.left:=104;
 case rash1.Position of
   1:Label2.Caption:=form1.StringGrid2.Cells[0,rash1.Position];
@@ -297,10 +287,10 @@ rash1.Max:=rcout-1;
 
    UndoZoom;//востанавливаем исходный масштаб
    Title.Text.Clear;
-   Title.Text.Add('Обороты '+Label2.Caption);//GRAPHIC
+   Title.Text.Add(rsrpm+' '+Label2.Caption);//GRAPHIC
    LeftAxis.AxisValuesFormat := '0.##';//
-   BottomAxis.Title.Caption  := 'Расход';//подписываем X
-   LeftAxis.Title.Caption    := 'Проценты';//подписываем Y
+   BottomAxis.Title.Caption  := rsrash;//подписываем X
+   LeftAxis.Title.Caption    := rsproc;//подписываем Y
    Repaint;
   end;
  with form3.Chart1 do
@@ -530,7 +520,7 @@ end;
 
 procedure TForm3.HelpClick(Sender: TObject);
 begin
-Showmessage('Для редактирования точек зажмите Ctrl,левую кнопку мыши и тащите точку');
+Showmessage(rshelp);
 end;
 
 (******************************************************************************)
